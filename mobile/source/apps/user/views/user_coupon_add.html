@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta charset="utf-8">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <title>{$page_title}</title>
+    <link href="{__TPL__}css/jquery-ui-1.10.1.custom.min.css" rel="stylesheet" />
+    <!--字体图标库-->
+    <link rel="stylesheet" href="{__TPL__}fonts/iconfont.css">
+    <link rel="stylesheet" href="{__TPL__}css/swiper-3.2.5.min.css">
+    <!--主样式-->
+    <link rel="stylesheet" href="{__TPL__}css/ectouch.css" />
+    <script type="text/javascript" src="{__TPL__}js/jquery-2.1.4.min.js"></script>
+</head>
+
+<body style="background-color: #E13B3B;">
+{include file="float_nav"}
+{include file="search"}
+		<div class="con" style="background:#e13b3b">
+			<div class="user-coupon-add-div">
+				<div class="coupon-add-top"><img src="{__TPL__}img/hongbao_top.png" </div>
+					<div class="coupon-add-text padding-all">
+                        <form action="{U('add_bonus')}" method="post" onsubmit="return check()">
+						<div class="text-all dis-box j-text-all">
+							<div class="input-text input-check  box-flex">
+								<input class="j-input-text" name="bonus_sn" type="text" placeholder="请输入红包口令">
+								<i class="iconfont icon-guanbi is-null j-is-null"></i>
+							</div>
+						</div>
+						<div class="text-all dis-box j-text-all">
+							<div class="input-text input-check  box-flex">
+								<input class="j-input-text" name="bouns_password" type="password" placeholder="请输入红包密码">
+								<i class="iconfont icon-guanbi is-null j-is-null"></i>
+							</div>
+						</div>
+						<div class="m-top12">
+							<button type="submit" class="btn-submit">提交</button>
+						</div>
+						<div>
+                        </form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--引用js-->
+          {include file="script"}
+			<script>
+                function check(){
+                    var sn = $("input[name=bonus_sn]").val();
+                    var card = $("input[name=bonus_password]").val();
+                    if(sn=="" || card==""){
+                        d_messages('请输入优惠券信息');
+                        return false;
+                    }
+                }
+				/*切换*/
+					var tabsSwiper = new Swiper('#j-tab-con', {
+						speed: 0,
+						noSwiping: true,
+						autoHeight: true
+					})
+					$(".j-tab-title li").on('touchstart mousedown', function(e) {
+						e.preventDefault()
+						$(".j-tab-title .active").removeClass('active')
+						$(this).addClass('active')
+						tabsSwiper.slideTo($(this).index())
+					})
+					$(".j-tab-title li").click(function(e) {
+						e.preventDefault()
+					})
+			</script>
+	</body>
+
+</html>

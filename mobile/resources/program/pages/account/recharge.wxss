@@ -1,0 +1,64 @@
+.section_recharge {
+  padding: 0 15px;
+  background: #fff;
+}
+
+.section_input {
+  border-bottom: 1px solid #f6f6f9;
+  padding: 24rpx 0;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.section_input .right input {
+  font-size: 28rpx;
+}
+
+.section_input .left {
+  width: 85px;
+}
+
+.section_input .left text {
+  font-size: 30rpx;
+}
+
+.section_input .right {
+  flex: 4.8;
+}
+
+.section_cont {
+  position: relative;
+}
+
+.section_cont .title {
+  padding: 15px 0;
+  font-size: 30rpx;
+}
+
+.section_cont textarea {
+  font-size: 30rpx;
+  width: 100%;
+  height: 160rpx;
+  margin-bottom: 30rpx;
+}
+
+.section_cont .num {
+  font-size: 26rpx;
+  color: #999;
+  position: absolute;
+  right: 0;
+  bottom: -10px;
+}
+
+.flow-distribution {
+  border-top: 1px solid #f6f6f9;
+}
+
+.flow-distribution .title {
+  font-size: 30rpx;
+}
+
+.profile-btn button {
+  background: #f42424;
+  color: white;
+}

@@ -1,0 +1,239 @@
+{if $full_page}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>{include file ='library/seller_html_head.lbi'}</head>
+<body>
+{include file ='library/seller_header.lbi'}
+<div class="ecsc-layout">
+    <div class="site wrapper">
+        {include file ='library/seller_menu_left.lbi'}
+        <div class="ecsc-layout-right">
+            <div class="main-content" id="mainContent">     
+            	{include file ='library/url_here.lbi'}
+				{include file ='library/seller_menu_tab.lbi'}
+                <div class="search-info">
+                	<div class="search-form">
+                    <form method="get" action="javascript:searchGoodsList()" name="searchFormList">		
+                        <div class="search-key">
+                        	<input type="text" class="text" name="keyword" value="" placeholder="商品ID/商品关键字">
+                            <input type="submit" class="submit" value="{$lang.button_search}">
+                            <input type="hidden" name="cat_id" id="cat_id" value="0"/>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+                
+                <form method="post" action="" name="listForm" onsubmit="return confirmSubmit(this)">
+                    <input type="hidden" name="act" value="batch">
+                    <input type="hidden" name="type" value>
+                        {/if}
+                    <div id="listDiv">
+                        <table class="ecsc-default-table goods-default-table">
+                            <thead>
+                                <tr ectype="table_header">
+                                    <th width="10%" class="frist">编号</th>
+                                    <th width="40%" class="tl">商品信息</th>
+									<th width="20%" class="tl">商品库商品分类</th>
+                                    <th width="15%">价格</th>
+                                    <th width="7%"><a href="javascript:listTable.sort('sort_order'); ">{$lang.sort_order}</a><div class="img">{$sort_sort_order}</div></th>
+
+                                    <th width="8%">{$lang.handler}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {foreach from=$goods_list item=goods name=goods}
+                                <tr>
+                                    <td class="frist trigger">
+                                        <div class="number">{$goods.goods_id}</div>
+                                    </td>
+                                    <td class="tl">
+                                        <div class="goods-info">
+                                        	<div class="goods-img"><a href="../goods.php?id={$goods.goods_id}" target="_blank"><img src="{$goods.goods_thumb}" onmouseover="toolTip('<img src={$goods.goods_thumb}>')" onmouseout="toolTip()"></a></div>
+                                            <div class="goods-desc">
+                                                <div class="name" class="hidden">{$goods.goods_name|escape:html}</div>
+                                            	<div class="goods-tag">
+                                                    {if $goods.brand_name}<font class="fl blue mr5">[ {$goods.brand_name} ]</font>{/if}
+                                                </div>
+                                            </div>                                          
+                                        </div>
+                                    </td>
+                                    <td>
+									<span>{$goods.lib_cat_name}</span>
+                                    </td>									
+                                    <td>
+                                        <span>{$goods.shop_price}</span>
+                                    </td>
+                                    <td><span onclick="listTable.edit(this, 'edit_sort_order', {$goods.goods_id})">{$goods.sort_order}</span></td>
+                                    <td class="ecsc-table-handle tr">
+                                        <span><a href="javascript:void(0);" ectype="seller_import" data-goodsid="{$goods.goods_id}" class="btn-red"><i class="icon-edit"></i><p>导入</p></a></span>
+                                    </td>
+                                </tr>
+                            {foreachelse}
+                            <tr><td colspan="20" class="no-records">{$lang.no_records}</td></tr>
+                            {/foreach}
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th class="frist tc"></th>
+                                    <th class="batch-operation" colspan="20">
+                                    	<span>{if $record_count}共{$record_count}条记录，{/if}</span>
+                                        <span class="page page_3">
+                                    	<i>去第</i> 
+											<select id="gotoPage" onchange="listTable.gotoPage(this.value)">
+												{create_pages count=$page_count page=$filter.page}
+											</select>
+        								<i>页</i>
+                                    </span>
+                                    </th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                        {include file="page.dwt"}
+                        {if $full_page}
+                    </div>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<!--高级搜索 start-->
+{include file="library/goods_search.lbi"}
+<!--高级搜索 end-->
+    
+{include file ='library/seller_footer.lbi'}
+{insert_scripts files="ToolTip.js,jquery.purebox.js"}
+<script type="text/javascript">
+listTable.recordCount = {$record_count};
+listTable.pageCount = {$page_count};
+
+{foreach from=$filter item=item key=key}
+listTable.filter.{$key} = '{$item}';
+{/foreach}
+
+function searchGoodsList()
+{
+	listTable.filter['keyword'] = Utils.trim(document.forms['searchFormList'].elements['keyword'].value);
+	listTable.filter['page'] = 1;
+
+	listTable.loadList();
+}
+
+function confirmSubmit(frm, ext)
+{
+  if (frm.elements['type'].value == 'trash')
+  {
+	  return confirm(batch_trash_confirm);
+  }
+  else if (frm.elements['type'].value == 'not_on_sale')
+  {
+	  return confirm(batch_no_on_sale);
+  }
+  else if (frm.elements['type'].value == 'move_to')
+  {
+	  ext = (ext == undefined) ? true : ext;
+	  return ext && document.getElementById('target_cat').value != 0;
+  }
+  else if (frm.elements['type'].value == '')
+  {
+	  return false;
+  }
+  else
+  {
+	  return true;
+  }
+}
+
+function changeAction(type)
+{
+  var frm = document.forms['listForm'];
+  frm.elements['type'].value = type;
+  if(confirmSubmit(frm, false))
+  {
+	frm.submit();
+  }
+}
+
+//商品库商品导入 start
+$(document).on("click","a[ectype='seller_import']",function(){
+	var goods_id = $(this).data("goodsid");
+	$.jqueryAjax('goods_lib.php', 'act=seller_import' + '&goods_id=' + goods_id, function(data){
+		var content = data.content;
+		pb({
+			id:"seller_export",
+			title:"商品库商品导入",
+			width:450,
+			content:content,
+			ok_title:"确定",
+			cl_title:"取消",
+			drag:true,
+			foot:false
+		});
+	});
+});
+
+//仓库/地区价格 end
+
+//SKU/库存 start
+$(document).on("click","a[ectype='add_sku']",function(){
+	
+	var goods_id = $(this).data('goodsid');
+	var user_id = $(this).data('userid');
+	
+	$.jqueryAjax('dialog.php', 'act=add_sku' + '&goods_id=' + goods_id + '&user_id=' + user_id, function(data){
+		var content = data.content;
+		pb({
+			id:"categroy_dialog",
+			title:"编辑商品货品信息",
+			width:863,
+			content:content,
+			ok_title:"确定",
+			cl_title:"取消",
+			drag:true,
+			foot:false
+		});
+	});
+});
+
+//SKU/库存 start
+$(document).on("click","a[ectype='add_attr_sku']",function(){
+	
+	var goods_id = $(this).data('goodsid');
+	var product_id = $(this).data('product');
+	
+	$.jqueryAjax('dialog.php', 'act=add_attr_sku' + '&goods_id=' + goods_id + '&product_id=' + product_id, function(data){
+		var content = data.content;
+		pb({
+			id:"attr_sku_dialog",
+			title:"编辑商品货品价格",
+			width:563,
+			content:content,
+			ok_title:"确定",
+			cl_title:"取消",
+			drag:true,
+			foot:true,
+			onOk:function(){
+				if(data.method){
+					insert_attr_warehouse_area_price(data.method);
+				}
+			}
+		});
+	});
+});
+
+function insert_attr_warehouse_area_price(method){
+	var actionUrl = "dialog.php?act=" + method;  
+	$("#warehouseForm").ajaxSubmit({
+			type: "POST",
+			dataType: "JSON",
+			url: actionUrl,
+			data: { "action": "TemporaryImage" },
+			success: function (data) {
+			},
+			async: true  
+	 });
+}
+</script>
+</body>
+</html>
+{/if}

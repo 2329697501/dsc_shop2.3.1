@@ -1,0 +1,156 @@
+page {
+  height: 100%;
+}
+
+.cate-content {
+  display: flex;
+  flex-direction: row;
+  font-size: 16px;
+  position: fixed;
+  top: 92rpx;
+  bottom: 5rpx;
+  width: 100%;
+}
+
+.cate-left {
+  flex-direction: column;
+  display: flex;
+  width: 200rpx;
+  color: #444;
+  height: 100%;
+}
+
+.cate-right {
+  display: flex;
+  flex-direction: column;
+  width: 550rpx;
+  padding: 20rpx 0rpx;
+  height: 100%;
+  overflow: hidden;
+}
+
+.type-nav {
+  position: relative;
+  padding: 25rpx 0.3rem;
+  text-align: center;
+  border-bottom: 1px solid #f6f6f9;
+  z-index: 10;
+  background: #fff;
+  border-right: 1px solid #f6f6f9;
+  display: block;
+}
+
+.type-nav.selected {
+  background: #f3f3f3;
+  color: #fd4a5f;
+  border-right: none;
+}
+
+.type-nav.selected:before {
+  content: " ";
+  position: absolute;
+  display: block;
+  width: 2px;
+  height: 100%;
+  background: #f42424;
+  top: 0;
+  left: 0;
+}
+
+.cate-right-cont {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  align-content: flex-start;
+}
+
+/*search*/
+
+.index-search-box {
+  top: 0;
+  left: 0rpx;
+  right: 0rpx;
+  z-index: 999;
+  position: fixed;
+  background: #fff;
+  padding: 13rpx;
+  border-bottom: 1px solid #eee;
+}
+
+.index-search {
+  border-bottom: 0;
+  background: #fff;
+  border-radius: 8rpx;
+  overflow: hidden;
+  position: relative;
+  font-size: 32rpx;
+  color: #999;
+  box-sizing: border-box;
+  height: 66rpx;
+  line-height: 66rpx;
+}
+
+.index-cont-search {
+  width: 100%;
+  font-size: 28rpx;
+  position: relative;
+  background: #f3f3f3;
+}
+
+.index-cont-search icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  margin-top: -15rpx;
+}
+
+.index-cont-search text {
+  margin-left: 72rpx;
+}
+
+.cate-right-cont-list {
+  width: 100%;
+}
+
+.categroy-list-right text {
+  display: block;
+}
+
+.cate-cont-box {
+  margin-bottom: 30rpx;
+  padding-bottom: 10rpx;
+  background: #fff;
+}
+
+.cate-two-text {
+  margin: 0 0 13rpx 5rpx;
+  color: #222;
+  display: block;
+  font-size: 26rpx;
+  width: 100%;
+  font-weight: 700;
+}
+
+.cate-cont-box .cate-img {
+  padding: 13rpx 13rpx 4rpx 13rpx;
+}
+
+.cate-cont-box .cate-img image {
+  width: 100%;
+  height: 150rpx;
+  border: 1px solid #f6f6f9;
+}
+
+.cate-cont-box text {
+  text-align: center;
+  display: block;
+  font-size: 26rpx;
+  padding-bottom: 14rpx;
+  color: #555;
+  padding:0 15rpx;
+}
+
+.cate-two-box {
+  width: 100%;
+  padding: 0 10px;
+}

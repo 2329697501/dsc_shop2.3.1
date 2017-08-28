@@ -1,0 +1,49 @@
+<!--index.wxml-->
+<view class="container">
+  <form bindsubmit="formSubmit">
+  <!--list-->
+    <view class="section_recharge">
+       <view class="section_input dis-box">
+        <view class="left col-3"><text>账号</text></view>
+        <view class="right">
+          {{userInfo.nickName}}
+        </view>
+      </view>
+      <!--真实姓名-s-->
+      <view class="section_input dis-box">
+        <view class="left col-3"><text>真实姓名</text></view>
+        <view class="right">
+          <input confirm-type="" name="userName" type="text" placeholder="输入真实姓名" value="{{userName}}" />
+        </view>
+      </view>
+      <!--真实姓名-e-->
+      <!--身份证号-s-->
+      <view class="section_input dis-box">
+        <view class="left col-3"><text>身份证号</text></view>
+        <view class="right">
+          <input confirm-type=""  name="idcard" maxlength="18" type="idcard" placeholder="输入身份证号" value="{{idcard}}" />
+        </view>
+      </view>
+      <!--身份证号-e-->
+      <!--输入手机号-s-->
+      <view class="section_input dis-box">
+        <view class="left col-3"><text>手机号码</text></view>
+        <view class="right">
+          <input confirm-type="" name="mobile" maxlength="11" type="number" placeholder="输入手机号码" value="{{mobile}}" />
+        </view>
+      </view>
+      <!--输入手机号-e-->
+      <!--邮箱-s-->
+      <view class="section_input dis-box">
+        <view class="left col-3"><text>邮箱</text></view>
+        <view class="right">
+          <input confirm-type="" name="email" type="text" maxlength="30" placeholder="输入邮箱" value="{{email}}" />
+        </view>
+      </view>
+      <!--邮箱-e-->
+    </view>
+    <view class="padding-box m-top10 ">
+      <button class="submit_btn" formType="submit">保 存</button>
+    </view>   
+  </form>
+</view>

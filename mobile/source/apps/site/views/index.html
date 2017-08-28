@@ -1,0 +1,313 @@
+{include file="page_header"}
+<div class="con">
+    {if $app}
+    <div class="ect-header-banner dis-box">
+        <a href="javascript:;"><i class="iconfont icon-guanbi1"></i></a>
+        <div class="box-flex">
+            <img src="{__TPL__}img/more_icon.png" class="fl" />
+            <div class="ect-header-text fl">
+                <h4>享受更加流畅的商城体验</h4>
+                <p>赶快下载ECJia多商户APP</p>
+            </div>
+        </div>
+        <a class="btn-submit1" href="http://test.b2b2c.ecjia.com/sites/touch/index.php?m=touch&c=index&a=download">立即下载</a>
+    </div>
+    {/if}
+    <div class="index-banner swiper-container box position-rel banner-first">
+        <div class="swiper-wrapper">
+        {insert_ads(array('id'=>256, 'num'=>6))}
+        </div>
+        <!-- 分页器 -->
+        <div class="swiper-pagination br-half text-c banner-first-pagination"></div>
+        <!--search-->
+        <section class="search box banner-search">
+            <div class="text-all position-rel dis-box j-text-all">
+                <div class="search-logo"><img src="{$logo}" /></div>
+                <div class="box-flex input-text n-input-text i-search-input">
+                    <a class="a-search-input j-search-input" href="#open_search"></a>
+                    <i class="iconfont icon-sousuo"></i>
+                    <input class="j-input-text" type="text" placeholder="商品/店铺搜索">
+                    <i class="iconfont icon-guanbi is-null j-is-null"></i>
+                </div>
+                <div class="search-left">
+                    <a href="{U('category/index/index')}"><i class="iconfont icon-caidan"></i>
+                        <p>分类</p></a>
+                </div>
+            </div>
+        </section>
+        <!--linear-->
+        <div class="linear"></div>
+    </div>
+    <!--menu-->
+    <nav class="bg-white ptb-1 index-nav mb-1">
+        <ul class="box ul-4 text-c bg-white">
+			
+            {foreach $nav as $key=>$list}
+            <li>
+                <a href="{$list.url}">
+                    <img src="{__TPL__}img/{$list.pic}">
+                    <p>{$list.name}</p>
+                </a>
+			</li>
+            {/foreach}
+			
+        </ul>
+    </nav>
+    <script type="text/javascript" src="{__PUBLIC__}script/main/lefttime.js"></script>
+    <script type="text/javascript">
+        var gmt_end_time = {if $end_time}{$end_time}{else}0{/if};
+        var day = '<em class="color-whie hour">';
+        var hour = '</em> : <em class="color-whie mini">';
+        var minute = '</em> : <em class="color-whie sec">';
+        var second = '</em>';
+        var end = '';
+        onload = function(){
+            try {onload_leftTime();}
+            catch (e) {}
+        }
+    </script>
+    <!--discount-->
+    <div class="box mb-1 title inx-ms">
+        <div class="box padding-all b-color-f">
+            <h3 class="color-red position-rel" >
+                <span class="fl inx-ms-time">限时<i class="iconfont">&#xe60b;</i>秒杀</span>
+                <span class="color-dark" id="leftTime"></span>
+                <span class="t-jiantou t-remark fr"><a href="{U('category/index/products',array('intro'=>'promotion'))}">更多<i class="iconfont icon-more"></i></a></span>
+            </h3>
+
+        </div>
+        <div class="dis-box m-top1px b-color-f">
+            <div class="box-flex title text-c bd bd-top-none pt-1 position-rel">
+                <!-- {foreach $promotion_goods as $key => $promote} -->
+                <!-- {if $key == 0} -->
+                <a href="{U('goods/index/index', array('id'=>$promote.goods_id))}">
+                    <img src="{$promote.goods_thumb}" class="img" />
+                </a>
+                <!-- {/if} -->
+                <!-- {/foreach} -->
+            </div>
+            <div class="box-flex ">
+                <ul class="ul-2 index-discount">
+                    <!--{foreach $promotion_goods as $key => $promote}-->
+                    <!-- {if $key !== 0} -->
+                    <li class="">
+                        <a href="{U('goods/index/index', array('id'=>$promote.goods_id))}">
+                            <img src="{$promote.goods_thumb}" />
+                            <p>{$promote.current_price}</p>
+                        </a>
+                    </li>
+                    <!-- {/if} -->
+                    <!-- {/foreach} -->
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--banner2-->
+    <div class="index-banner swiper-container box mb-1 banner-second">
+        <div class="swiper-wrapper">
+            {insert_ads(array('id'=>257, 'num'=>3))}
+        </div>
+        <!-- 分页器 -->
+        <div class="swiper-pagination br-half text-c banner-second-pagination"></div>
+    </div>
+
+    <!--recom-->
+    <div class="bg-white mb-1 pb-2 idx-padding">
+        <div class="box padding-all b-color-f">
+            <h3 class="recom-title">
+                精品推荐
+                <span>精品商品尽收眼底赶快行动吧</span>
+                <span class="t-jiantou t-remark fr"><a href="{U('category/index/products',array('intro'=>'best'))}">更多<i class="iconfont icon-more"></i></a></span>
+            </h3>
+        </div>
+        <div class="swiper-container recom-container">
+            <div class="swiper-wrapper">
+                <ul class="swiper-slide recom-list">
+                    <!-- {foreach $best_goods as $key => $best} -->
+                    <li>
+                        <a href="{U('goods/index/index', array('id'=>$best.goods_id))}">
+                            <img src="{$best.goods_thumb}" />
+                            <p class="index-name">{$best.goods_name}</p>
+                            <p class="index-price">{$best.current_price}</p>
+                        </a>
+                    </li>
+                    <!-- {if ($key+1)%3 == 0 && $key !== (count($best_goods)-1)} -->
+                </ul><ul class="swiper-slide recom-list">
+                <!-- {/if} -->
+                <!-- {/foreach} -->
+            </ul>
+            </div>
+            <!-- 分页器 -->
+            <div class="swiper-pagination recom-pagination"></div>
+        </div>
+    </div>
+    <!--hot-->
+    <div class="box mb-1 b-color-f" style="display:none;">
+        <div class="box padding-all  wallet-bt">
+            <h3 class="recom-title">
+                热门大牌
+                <span>最全最时尚的大牌汇集</span>
+                <span class="t-jiantou t-remark fr">更多<i class="iconfont icon-more"></i></span>
+            </h3>
+        </div>
+        <div class="hot-container-div">
+            <i class="iconfont icon-back"></i>
+            <div class="swiper-container hot-container">
+                <ul class="swiper-wrapper">
+                    <!-- {foreach $brand_list as $vo} -->
+                    <li class="swiper-slide ">
+                        <a href="javascript:; ">
+                            <img src="{$vo.brand_logo}" />
+                        </a>
+                    </li>
+                    <!-- {/foreach} -->
+                </ul>
+                <!-- 导航按钮 -->
+            </div>	<i class="iconfont icon-more"></i>
+        </div>
+    </div>
+
+    <!--banner3-->
+    <div class="index-banner swiper-container box mb-1 banner-third">
+        <div class="swiper-wrapper">
+        {insert_ads(array('id'=>258, 'num'=>3))}
+        </div>
+        <!-- 分页器 -->
+        <div class="swiper-pagination br-half text-c banner-third-pagination"></div>
+    </div>
+    <!--brand-->
+    {if $store}
+    <div class="pb-2 idx-padding b-color-f">
+        <div class="box padding-all">
+            <h3 class="recom-title">
+                店铺街
+                <span>精品店铺一条街</span>
+                <span class="t-jiantou t-remark fr"><a href="{U('store/index/index')}">更多<i class="iconfont icon-more"></i></a></span>
+            </h3>
+        </div>
+        <div class="swiper-container brand-container b-color-f">
+            <div class="swiper-wrapper">
+                <ul class="brand-list swiper-slide">
+                    <!--{foreach $store as $key => $val}-->
+                    <li>
+                        <a href="{U('store/index/shopinfo', array('id'=>$val.user_id))}">
+                            <div class="brand-img">
+                                <img src="{$val.street_thumb}" />
+                                <div class="brand-logo">
+                                    <img src="{$val.brand_thumb}"/>
+                                </div>
+                            </div>
+                            <ul class="ul-3">
+                                <!--{foreach $val.goods_list as $k => $v}-->
+                                <li>
+                                    <img src="{$v.goods_thumb}" />
+                                </li>
+                                <!--{/foreach}-->
+                            </ul>
+                        </a>
+                    </li>
+                    <!-- {if ($key+1) % 3 == 0 && $key !== (count($store)-1)} -->
+                </ul><ul class="brand-list swiper-slide">
+                <!-- {/if} -->
+                <!--{/foreach}-->
+            </ul>
+            </div>
+            <!-- 分页器 -->
+            <div class="swiper-pagination brand-pagination"></div>
+        </div>
+    </div>
+    {/if}
+    <!--like-->
+    <p class="index-title padding-all text-c">猜你喜欢</p>
+    <section class="product-list j-product-list product-list-medium" data="1">
+		<script id="j-product" type="text/html">
+		<ul>
+			<%each list as goods%>
+			<li>
+				<div class="product-div">
+					<a class="product-div-link" href="<%goods.url%>"></a>
+					<img class="product-list-img" src="<%goods.goods_thumb%>" />
+					<div class="product-text">
+                        <h4><%goods.goods_name%></h4>
+                        <p><span class="p-price t-first "><% goods.current_price%><small></small></span></p>
+                        <a href="javascript:void(0)" class="icon-flow-cart fr j-goods-attr"><i class="iconfont icon-gouwuche"></i></a>
+                    </div>
+				</div>
+			</li>
+			<%/each%>
+		</ul>
+		</script>
+    </section>
+        <div class="n-footer-box">
+        <ul class="n-footer-minbox">
+            <li>
+                <a href="http://m.ecmoban.com/index.php?m=touch&amp;c=index&amp;a=download">
+                    <div class="n-footer-img-box"><img src="{__TPL__}/img/footer-a.png"></div>
+                    <p class="footer-tit1">客户端</p>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <div class="n-footer-img-box"><img src="{__TPL__}/img/footer-c.png"></div>
+                    <p class="footer-tit">触屏版</p>
+                </a>
+            </li>
+            <li>
+                <a href="{__HOST__}">
+                    <div class="n-footer-img-box"><img src="{__TPL__}/img/footer-b.png"></div>
+                    <p class="footer-tit1">电脑版</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <footer class="padding-all text-center t-remark">
+        {$copyright}
+        &copy; 2016 <a href="http://www.ectouch.cn/" class="t-remark">ectouch(ectouch.cn)</a> 版权所有，并保留所有权利
+    </footer>
+</div>
+{include file="script"}
+<!-- jquery-ui-1.10.1.custom.min.js和jquery.ui.touch-punch.min.js使jquery 拥有手机touch事件-->
+<script src="{__TPL__}js/jquery-ui-1.10.1.custom.min.js " type="text/javascript "></script>
+<script src="{__TPL__}js/jquery.ui.touch-punch.min.js "></script>
+<script type="text/javascript" src="{__PUBLIC__}script/jquery.infinite.js"></script>
+<script type="text/javascript" src="{__PUBLIC__}script/template.js"></script>
+
+<!--script for this page only-->
+<script type="text/javascript " src="{__TPL__}js/jquery.scrollUp.min.js "></script>
+<script type="text/javascript ">
+    $(function($) {
+        var mySwiper = new Swiper('.banner-first', {
+            autoplay: 4000,
+            pagination: '.banner-first-pagination'
+        });
+        var mySwiper = new Swiper('.banner-second', {
+            autoplay: 5000,
+            pagination: '.banner-second-pagination'
+        });
+        var mySwiper = new Swiper('.banner-third', {
+            autoplay: 5000,
+            pagination: '.banner-third-pagination'
+        });
+        var mySwiper = new Swiper('.recom-container', {
+            pagination: '.recom-pagination',
+            slidesPerView: 1,
+            paginationClickable: true
+        });
+        var mySwiper = new Swiper('.brand-container', {
+            pagination: '.brand-pagination',
+            slidesPerView: 1,
+            paginationClickable: true
+        });
+        var mySwiper = new Swiper('.hot-container', {
+            slidesPerView: 4,
+            paginationClickable: true,
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev'
+        });
+    });
+	var url = "{U('async_list')}";
+	$('.product-list').infinite({url: url, template:'j-product'});
+</script>
+</body>
+</html>

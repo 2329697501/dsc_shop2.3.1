@@ -1,0 +1,1 @@
+<?php exit;?>001479007044e97f35a7c0edfba3225b4f6004c7f581s:67:"a:2:{s:8:"template";s:6:"123456";s:12:"compile_time";i:1478920644;}";

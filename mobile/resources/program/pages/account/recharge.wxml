@@ -1,0 +1,37 @@
+<view class="container">
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="section_recharge">
+      <!--输入金额-s-->
+
+
+      <view class="section_input dis-box">
+        <view class="left col-3">
+          <text>充值金额</text>
+        </view>
+        <view class="right fr">
+          <input confirm-type="done" name="price" type="number" value="{{price}}" placeholder="请输入充值的金额" />
+        </view>
+      </view>
+      <!--输入金额-e-->
+
+      <!--配送方式-s-->
+      <view class="section_cont b-f">
+        <view class="title col-3">会员备注:</view>
+        <textarea placeholder="（选填）" maxlength="300" name="cont" value="{{cont}}" />
+        <text class="num">300</text>
+      </view>
+
+      <!--付款方式-s-->
+
+        <view class="flow-distribution b-f dis-box">
+          <view class="flow-distribution-left ">
+            <text class="title col-3">充值方式</text>
+            <text class="m-l flow-dis">微信支付</text>
+          </view>
+        </view>
+    </view>
+    <view class="padding-box m-top10 profile-btn">
+      <button formType="submit">充值</button>
+    </view>
+  </form>
+</view>

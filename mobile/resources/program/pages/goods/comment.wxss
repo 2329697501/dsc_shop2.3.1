@@ -1,0 +1,61 @@
+.header-box{display: flex;  border-bottom:#eee solid 1px;}
+.goods-left,.goods-right{flex:1;font-size:28rpx;line-height:40rpx;height:40rpx;justify-content:center;display:flex;}
+.goods-center{flex:3;}
+.goods-right image{width:60rpx;height:20rpx;padding-top:35rpx;}
+/*内容*/
+.goods-comment-box .admin{font-size:26rpx; color:#777;}
+.goods-comment-cont{font-size:30rpx;color:#444;margin:10rpx 0}
+
+/*header*/
+.menu{
+  background: #fff;
+  z-index: 100000
+}
+
+.top-nav{
+    white-space: nowrap;
+    width: 95%;
+    margin: 0 auto;
+}
+
+
+
+/*nav*/
+.goods-nav{
+    background:rgba(0,0,0,0.7);
+    position:absolute;
+    right:30rpx;
+    top:80rpx;
+    z-index:19;
+    padding:10rpx;
+    color:#fff;
+    font-size:32rpx;
+    border-radius:4px;
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    display:none;
+    width:30%;
+    }
+.goods-nav .nav-list{
+    padding:20rpx;
+    border-bottom: 1px solid rgba(100,100,100,.5);
+    color:#ccc;
+}  
+.goods-nav .nav-list:last-child{
+    border-bottom:none;
+}   
+.goods-nav:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-width: 12rpx;
+    border-style: solid;
+    bottom: 100%;
+    right: 25rpx;
+    border-bottom-color: rgba(51,51,51,.96);
+}
+.goods-nav.active{display:block;}
+

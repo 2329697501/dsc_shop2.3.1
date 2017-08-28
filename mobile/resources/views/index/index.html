@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+    <title>{$page_title}</title>
+    <link rel=stylesheet href="//at.alicdn.com/t/font_u366719ytlat6gvi.css" media="screen" title="no title">
+    <link rel=stylesheet href="//at.alicdn.com/t/font_lkv63qpdlo8khuxr.css" media="screen" title="no title">
+    <link href="__ROOT__/public/css/app.css?v=<?=date('Ymd')?>" rel=stylesheet>
+    <script>
+        window.ROOT_URL = '__ROOT__/';
+        window.PC_URL = '__STATIC__/';
+        //首页app下载连接
+        window.APP_DOWNLOAD_URL = '';
+        window.shopInfo = {ruid :0,authority:1};
+</script>
+<style>
+    /*display盒子*/
+.dis-box {display: -webkit-box;display: -moz-box;display: -ms-box; display: box;}
+.box-flex{ box-flex: 1; -webkit-box-flex: 1; display: block; width: 100%;}
+/*footer*/
+.footer-nav{ background-color: rgba(254, 253, 252, 1);   left: 0;right: 0;position: fixed;margin: 0 auto;bottom: 0; z-index: 11;box-shadow: 1px 5px 15px rgba(50,50,50,0.3);border-top:1px solid #f6f6f9;padding:0.3rem 0}
+.footer-nav .nav-list{font-size:1.1rem;display:block;text-align:center;padding-top:0rem;color:#595959}
+.footer-nav .nav-list .nav-box{background:url(./public/img/ec-icon.png) no-repeat;width:2.7rem;height:2.7rem;display: block;margin: 0 auto; background-size: 32.1rem;}
+.footer-nav .nav-list .i-home{background-position: -.02rem 0rem;}
+.footer-nav .nav-list .i-cate{background-position: -2.701rem 0rem;}
+.footer-nav .nav-list .i-zhongchou{background-position: -16.7rem 0.1rem;}
+.footer-nav .nav-list .i-zhongchou_user{background-position: -19.5rem 0.1rem;}
+.footer-nav .nav-list .i-zhongchou-order{background-position: -22.25rem  0.1rem;}
+.footer-nav .nav-list .i-shop{background-position: -13.9rem 0rem;}
+.footer-nav .nav-list .i-flow{background-position: -5.78rem 0rem;}
+.footer-nav .nav-list .i-user{background-position: -8.38rem 0rem;}
+.footer-nav .nav-list .i-pintuan{background-position: -28.6rem 0rem;}
+.footer-nav .nav-list .i-ranking{background-position: -25.4rem 0.1rem;}
+.footer-nav .nav-list.active{color:#ec5151}
+.footer-nav .nav-list.active .i-home{background-position: .02rem -3rem;}
+.footer-nav .nav-list.active .i-cate{background-position: -2.701rem -3rem;}
+.footer-nav .nav-list.active .i-zhongchou{background-position: -16.7rem -3rem;}
+.footer-nav .nav-list.active .i-zhongchou_user{background-position: -19.5rem -2.9rem;}
+.footer-nav .nav-list.active .i-zhongchou-order{background-position: -22.25rem -2.9rem;}
+.footer-nav .nav-list.active .i-shop{background-position: -13.9rem -3rem;}
+.footer-nav .nav-list.active .i-flow{background-position: -5.78rem -3rem;}
+.footer-nav .nav-list.active .i-user{background-position: -8.38rem -3rem;}
+.footer-nav .nav-list.active .i-pintuan{background-position: -28.6rem -2.9rem;}
+.footer-nav .nav-list.active .i-ranking{background-position: -25.4rem -2.8rem;}
+
+/*首页广告*/
+.index-bg{background:rgba(0,0,0,0.6);position:fixed; left:0;right:0;top:0; bottom:0;z-index: 1000;}
+.index-img{position:fixed;left:10%;right:10%;top:50%;z-index:1001;}
+.index-img img{width:100%;}
+.index-bg span{position:absolute;bottom:1.6rem;left:50%; margin-left:-1rem;color:#fff;background:rgba(255,255,255,0.3);width:2rem;height:2rem;line-height: 2rem;font-size:1.8rem;display: block;text-align: center;border-radius: 100%;z-index:1002;}
+
+</style>
+</head>
+<body style="margin-bottom:5.2rem;">
+<div id="app"></div>
+
+<!--悬浮btn star-->
+<footer class="footer-nav dis-box">
+    <a href="{url('/')}" class="box-flex nav-list active">
+        <i class="nav-box i-home"></i><span>首页</span>
+    </a>
+    <a href="{url('category/index/index')}" class="box-flex nav-list">
+        <i class="nav-box i-cate"></i><span>分类</span>
+    </a>
+    <a href="{url('search/index/index')}" class="box-flex nav-list">
+        <i class="nav-box i-shop"></i><span>搜索</span>
+    </a>
+    <a href="{url('cart/index/index')}" class="box-flex position-rel nav-list">
+        <i class="nav-box i-flow"></i><span>购物车</span>
+    </a>
+    {if $filter}
+    <a href="{url('drp/user/index')}" class="box-flex nav-list">
+        <i class="nav-box i-user"></i><span>{$custom}中心</span>
+    </a>
+    {elseif $community}
+    <a href="{url('community/index/index')}" class="box-flex nav-list">
+        <i class="nav-box i-user"></i><span>社区</span>
+    </a>
+    {else}
+    <a href="{url('user/index/index')}" class="box-flex nav-list">
+        <i class="nav-box i-user"></i><span>我</span>
+    </a>
+    {/if}
+</footer>
+<script src="//3gimg.qq.com/lightmap/components/geolocation/geolocation.min.js"></script>
+<script type="text/javascript" src="__ROOT__/public/js/manifest.js?v=<?=date('Ymd')?>"></script>
+<script type="text/javascript" src="__ROOT__/public/js/vendor.js?v=<?=date('Ymd')?>"></script>
+<script type="text/javascript" src="__ROOT__/public/js/app.js?v=<?=date('Ymd')?>"></script>
+<script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
+
+{include file="jssdk"}
+
+<!--广告-->
+{if $popup_ads !=1}
+<div class="index-bg">
+    <span class="j-icon">×</span>
+    <a href="{$ad_link}">
+    <div class="index-img">
+        <img src="{$popup_ads}" id="index-img">
+    </div>
+    </a>
+</div>
+{/if}
+</body>
+<script>
+window.onload=function(){
+
+		/*页面向上滚动js*/
+		$(".filter-top").click(function() {
+			$("html,body").animate({
+				scrollTop: 0
+			}, 200);
+		});
+
+		$(window).scroll(function() {
+			var prevTop = 0,
+				currTop = 0;
+			currTop = $(window).scrollTop();
+			win_height = $(window).height() * 2;
+			if(currTop >= win_height) {
+				$(".filter-top").stop(true,true).fadeIn(200);
+			} else {
+				$(".filter-top").stop(true,true).fadeOut(200);
+			}
+			//prevTop = currTop; //IE下有BUG，所以用以下方式
+			setTimeout(function() {
+				prevTop = currTop
+			}, 0);
+		});
+
+    /*点击关闭顶部层*/
+    $(".ect-header-banner i.icon-guanbi").click(function () {
+        $(".app-down").hide();
+    });
+}
+
+//点击后关闭
+    $(".j-icon,.index-bg").click(function(){
+        $(".index-bg").hide();
+    })
+    function index_top(){
+         var top=$("#index-img").outerHeight(true)/2;
+        $(".index-img").css("marginTop",-top);
+    }
+    index_top();
+    $(window).resize(function(){
+       index_top()
+    });
+    setTimeout(function () {
+       $(".index-bg").hide();
+    }, 10000);
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+{include file="admin/header"}
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">{$ur_here}</h3>
+  </div>
+  <div class="panel-body">
+    <form action="{U('edit')}" method="post" class="form-horizontal" role="form">
+      <table id="general-table" class="table table-hover ectouch-table">
+        {foreach $info['config'] as $key => $vo}
+        <tr>
+          <td width="200">{$vo['label']}</td>
+          <td><input type="text" name="cfg_value[]" maxlength="50" class="form-control input-sm" value="{$vo['value']}" />
+          <input name="cfg_name[]" type="hidden" value="{$vo['name']}" />
+          <input name="cfg_type[]" type="hidden" value="{$vo['type']}" />
+          <input name="cfg_label[]" type="hidden" value="{$vo['label']}" />
+          </td>
+        </tr>
+        {/foreach}
+        <tr>
+          <td width="200">申请地址</td>
+          <td><div class="col-md-4"> <a href="{$info['website']}" target="_blank">立即申请</a></div></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><div class="col-md-4">
+              <input type="hidden"  name="type" value="{$info['type']}" />
+              <input type="submit" value="编辑" class="btn btn-primary" />
+              <input type="reset" value="重置" class="btn btn-default" />
+            </div></td>
+        </tr>
+      </table>
+    </form>
+  </div>
+</div>
+{include file="admin/footer"}

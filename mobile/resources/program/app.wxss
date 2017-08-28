@@ -1,0 +1,686 @@
+/**app.wxss**/
+
+page {
+  background: #f3f3f3;
+}
+
+.container, input {
+  height: 100%;
+  font-family: PingFang-Medium,PingFangSC-Regular,Heiti,Heiti SC,DroidSans,DroidSansFallback,"Microsoft YaHei",sans-serif;-webkit-font-smoothing:antialiased;
+}
+
+.p-r {
+  position: relative;
+}
+
+.p-a {
+  position: absolute;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+/*网格布局*/
+
+.dis-box {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.flex-box {
+  flex: 1;
+}
+
+.box-flex {
+  display: flex;
+  flex-direction: row;
+}
+
+/*流式布局*/
+
+.dis-flex {
+  width: 100%;
+  display: flex;
+  flex-flow: wrap;
+  align-content: flex-start;
+}
+
+.flex-five {
+  box-sizing: border-box;
+  flex: 0 0 50%;
+}
+
+.flex-three {
+  box-sizing: border-box;
+  flex: 0 0 33.33%;
+}
+
+.flex-four {
+  box-sizing: border-box;
+  flex: 0 0 25%;
+}
+
+.flex-one {
+  box-sizing: border-box;
+  flex: 0 0 10%;
+}
+
+/*垂直居中*/
+
+.justify-c {
+  display: flex;
+  justify-content: center;
+}
+
+/*水平居中*/
+
+.align-c {
+  align-items: center;
+  display: flex;
+}
+
+/*居中*/
+
+.text-c {
+  text-align: center;
+  display: block;
+}
+
+.text-r {
+  text-align: right;
+}
+
+/*垂直居中*/
+
+.p-bottom {
+  padding-bottom: 52px;
+}
+
+.cont-box {
+  padding: 12px 15px;
+}
+
+.padding-box {
+  padding: 0 15px;
+}
+
+.p-l15 {
+  padding-left: 15px;
+}
+
+.p-r15 {
+  padding-right: 15px;
+}
+
+.b-f {
+  background: #fff;
+}
+
+.b-h {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.title-list {
+  background: #efeff4;
+  padding: 30rpx 0 15rpx;
+}
+.m-t10 {
+  margin-top: 10rpx;
+}
+.m-top18 {
+  margin-top: 18rpx;
+}
+
+.m-t20 {
+  margin-top: 20px;
+}
+
+.h3 {
+  font-size: 34rpx;
+}
+
+.h4 {
+  font-size: 32rpx;
+}
+.h5{font-size: 30rpx;}
+
+.h6 {
+  font-size: 28rpx;
+  color:#888;
+}
+
+.p {
+  font-size: 26rpx;
+  color: #888;
+}
+
+.col-3 {
+  color: #333;
+}
+
+.col-7 {
+  color: #777;
+}
+
+.col-1cbb7f {
+  color: #fd4a5f;
+}
+
+.m-b5 {
+  margin-bottom: 50rpx;
+}
+
+.m-b6 {
+  margin-bottom: 150rpx;
+}
+
+.m-l {
+  margin-left: 10rpx;
+}
+
+.m-top05 {
+  margin-top: 10rpx;
+}
+
+.m-top10 {
+  margin-top: 20rpx;
+}
+
+.b-t {
+  border-bottom: 1px solid #f6f6f9;
+}
+
+/*超出隐藏*/
+
+.onelist-hidden {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.twolist-hidden {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/*search*/
+
+.search-input-box {
+  height: 76rpx;
+    overflow:hidden;
+}
+
+.search-input {
+  width: 80%;
+  background: #fff;
+  border-radius: 5px 0 0 5px;
+  padding-left: 10rpx;
+  box-sizing: border-box;
+    overflow:hidden;
+
+}
+
+.search-input input {
+  font-size: 30rpx;
+  height: 76rpx;
+  line-height: 76rpx;
+  padding-left:10px;
+}
+
+.serch-button {
+  width: 20%;
+  box-sizing: border-box;
+}
+
+.serch-button button {
+  line-height: 76rpx;
+  height: 76rpx;
+  font-size: 32rpx;
+  border-radius: 0 5px 5px 0;
+}
+
+
+/*商品详情头部nav*/
+.m-top44 {
+  margin-top: 28px;
+}
+.goods-header {
+  display: flex;
+  border-bottom: #eee solid 1px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 11;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.goods-header .nav {
+  margin: 0 auto;
+}
+/*规格和详情*/
+.top-nav-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding:.6rem 0 .6rem 0;
+  border-top: #e5e5e5 solid 1px;
+  font-size:30rpx;
+  border-bottom:#e5e5e5 solid 1px ;
+}
+
+#top-nav-bar-true span{
+  border-bottom: 1px #fd4a5f solid;
+  color:#fd4a5f;
+  padding-bottom:.6rem;
+}
+.goods-cont-li image{
+  width:100%;
+  display: block;
+  }
+.goods-cont-li .wxParse-inline{
+  font-size:34rpx;
+  }
+.top-btn {
+  display: inline-block;
+  padding: 14rpx 8rpx;
+  color: #666;
+  margin:0 24rpx;
+}
+
+.top-hoverd-btn {
+  color: #000;
+  border-bottom: #000 solid 2px;
+  text-align: center;
+}
+
+/*回到顶部*/
+
+.production-top {
+  width: 50rpx;
+  height: 50rpx;
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  right: 20px;
+  bottom: 50px;
+  z-index: 4999;
+  padding: 20rpx;
+  border-radius: 100%;
+  overflow: hidden;
+  transition: all 0.5s;
+  opacity: 0;
+  transform: translateY(200rpx);
+}
+
+.production-top image {
+  width: 100%;
+  height: 100%;
+}
+
+.production-top.active {
+  opacity: 1;
+  transform: translateY(0rpx);
+}
+
+/*加载更多样式*/
+
+.production-cont {
+  text-align: center;
+  color: #777;
+  font-size: 26rpx;
+  padding: 18rpx 0;
+}
+
+
+/*商品列表*/
+.index-goods-list .list-box image {
+  width: 100%;
+  height: 360rpx;
+  display: block;
+}
+
+.index-goods-list .list-box {
+  border: 1px solid #f6f6f9;
+}
+
+.index-list {
+  padding: 0 10rpx;
+}
+
+
+.index-goods-list .list-box .h4 {
+  margin: 15rpx 15rpx 0 15rpx;
+  color:#000;
+  height:84rpx
+}
+
+.index-goods-list .list-box .price {
+  color: #f42424;
+  padding: 15rpx 15rpx 20rpx;
+  display: block;
+}
+.index-goods-list .list-box .price .del {
+  padding: 0 0 0 10rpx;
+  font-size:22rpx;
+  color:#999;
+  text-decoration:line-through;
+
+}
+
+/*订单确认*/
+.flow-checkout-header {
+  padding: 28rpx 0;
+  border-bottom: 1px solid #efeff4;
+  background:url(http://shop.ectouch.cn/pt/themes/default/statics/img/flow_check_03.png) bottom left repeat-x;
+  background-size: 120rpx auto;
+  position: relative
+}
+
+.flow-header-left {
+  flex: 14;
+}
+
+.flow-header-right {
+  flex: 1;
+}
+
+.flow-header-right image {
+  width: 34rpx;
+  height: 34rpx;
+  margin-top: 20rpx;
+  float: right;
+}
+
+.no-flow image {
+  margin-top: 6rpx;
+
+}
+.flow-checkout-header .flow-checkout-admin {
+  color: #000;
+}
+
+.flow-checkout-header .flow-checkout-admin text {
+  padding: 0 10rpx;
+}
+
+.flow-checkout-header .flow-checkout-address {
+  font-size: 26rpx;
+  color: #777;
+  margin-top: 6rpx;
+}
+
+/*商品列表*/
+
+.flow-shopList {
+  padding: 20rpx 0;
+  border-bottom: 1px solid #ededed;
+}
+
+.flow-shopList .flow-list-left {
+  flex: 2;
+}
+
+.flow-shopList .flow-list-left image {
+  width: 200rpx;
+  height: 200rpx;
+  border: 1px solid #efeff4;
+  background:#fff;
+}
+
+.flow-shopList .flow-list-right {
+  flex: 4;
+}
+
+.flow-shopList .flow-list-right .h4 {
+  font-size: 30rpx;
+  color: #000;
+}
+
+.flow-shopList .flow-list-right .flow-cont {
+  font-size: 30rpx;
+  color: #fd4a5f;
+}
+
+.flow-shopList .flow-list-right .small {
+  float: right;
+  font-size: 26rpx;
+  color: #777;
+}
+
+.flow-shopList .flow-list-right .flow-list-cont {
+  padding-top: 30rpx;
+}
+
+/*配送方式*/
+
+.flow-distribution {
+  padding: 20rpx 0;
+  border-bottom: 1px solid #efeff4;
+}
+
+.flow-distribution .flow-dis {
+  font-size: 32rpx;
+}
+
+.flow-distribution-left {
+  flex: 14;
+}
+
+.flow-distribution-left .m-l {
+  color: #444;
+  float: right;
+}
+
+.flow-distribution-right {
+  flex: 1;
+}
+
+.flow-distribution image {
+  width: 30rpx;
+  height: 30rpx;
+  margin-top: 6rpx;
+  float: right;
+}
+
+.flow-message-box {
+  padding: 20rpx 15px;
+  position: relative;
+}
+
+.flow-message-box .flow-message-title {
+  color: #777;
+}
+
+.flow-message-box textarea {
+  height: 100rpx;
+  width: 100%;
+  margin-top: 10rpx;
+  padding: 10rpx 0;
+  border-bottom: 1px solid #efeff4;
+}
+.flow-fixed-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #fff;
+  border-top:1px solid #efeff4;
+}
+.flow-message-box .flow-message-num {
+  position: absolute;
+  bottom: 34rpx;
+  right: 30rpx;
+  font-size: 26rpx;
+  color: #777;
+}
+
+.flow-num-box {
+  font-size: 30rpx;
+  color: #777;
+  padding: 10rpx 15px 25rpx 15px;
+  text-align: right;
+}
+
+.flow-num-box .flow-money {
+  color: #f42424;
+}
+
+/*商品总金额*/
+
+.flow-all-money {
+  color: #444;
+}
+
+.flow-all-money .flow-all-list {
+  font-size: 32rpx;
+  padding: 20rpx 0;
+  border-bottom: 1px solid #efeff4;
+}
+
+.flow-all-money .flow-all-list-cont {
+  font-size: 28rpx;
+  padding: 16rpx 0;
+  border-bottom: 1px solid #efeff4;
+}
+
+.flow-fixed-footer .chackout-left {
+  font-size: 32rpx;
+  line-height: 44px;
+  color: #777;
+}
+
+.flow-fixed-footer .chackout-right {
+  font-size: 34rpx;
+}
+
+.flow-btn {
+  background-color: #f42424;
+  color: #fff;
+  text-align: center;
+  line-height: 44px;
+  display: block;
+}
+
+/*按扭*/
+button.submit_btn {
+  background: #f42424;
+  color: white;
+  margin-bottom:20rpx;
+}
+
+
+
+/*分界线*/
+/*title*/
+.title-hrbg {
+  position: relative;
+  z-index: 1;
+  height: 80rpx;
+  line-height: 80rpx;
+  overflow: hidden;
+  color: #888;
+  text-align: center;
+  margin-top:30rpx;
+}
+
+.title-hrbg .cont {
+  background: #f3f5f7;
+  padding: 1rem 0.6rem;
+  font-size: 28rpx;
+  z-index: 10;
+}
+.title-hrbg .cont .icon-huo{color:#f42424;font-size:28rpx; padding-right:10rpx;}
+.title-hrbg .hr {
+  background: #ddd;
+  height: 1px;
+  border: 0;
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: 50%;
+  margin-top: 1px;
+  z-index: -1;
+}
+
+/*没有内容*/
+.ectouch-notcont{margin:130rpx 100rpx;}
+.ectouch-notcont .cont {
+  display: block;
+  text-align: center;
+  font-size: 30rpx;
+  color: #999;
+}
+.ectouch-notcont .iconfont{
+  font-size:150rpx;
+  color:#ccc;
+  text-align: center;
+  display: block;
+  margin-bottom:10rpx;
+  }
+
+@font-face {
+  font-family: 'iconfont';  /* project id 219810 */
+  src: url('//at.alicdn.com/t/font_920972fxixjemi.eot');
+  src: url('//at.alicdn.com/t/font_920972fxixjemi.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_920972fxixjemi.woff') format('woff'),
+  url('//at.alicdn.com/t/font_920972fxixjemi.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_920972fxixjemi.svg#iconfont') format('svg');
+}
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-wujiaoxing:before { content: "\e622"; }
+
+.icon-form:before { content: "\e6a2"; }
+
+.icon-youhuiquan:before { content: "\e603"; }
+
+.icon-shezhi:before { content: "\e63a"; }
+
+.icon-huo:before { content: "\e629"; }
+
+.icon-lajixiang:before { content: "\e645"; }
+
+.icon-shezhi1:before { content: "\e64b"; }
+
+.icon-xiangyoujiantou:before { content: "\e65f"; }
+
+.icon-dianpu2:before { content: "\e688"; }
+
+.icon-bangzhu:before { content: "\e621"; }
+
+.icon-shoucang:before { content: "\e66c"; }
+
+.icon-iconfont7:before { content: "\e602"; }
+
+.icon-daishouhuo:before { content: "\e647"; }
+
+.icon-yue1:before { content: "\e65e"; }
+
+.icon-daiyanren:before { content: "\e66a"; }
+
+.icon-daifukuan:before { content: "\e612"; }
+
+.icon-daipingjia:before { content: "\e6c6"; }
+
+.icon-huo1:before { content: "\e62f"; }
+
+.icon-meiyougengduo:before { content: "\e601"; }
+
+.icon-shouhuodizhi1:before { content: "\e613"; }
+
+.icon-shoucang1:before { content: "\e600"; }

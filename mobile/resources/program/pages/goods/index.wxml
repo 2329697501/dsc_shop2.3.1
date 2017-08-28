@@ -1,0 +1,174 @@
+<view class="container p-bottom">
+  <view class="goods-header">
+    <view class="nav h5">
+      <view bindtap="toNew" class="top-btn {{new}}">商品</view>
+      <view bindtap="toGood" class="top-btn {{good}}">详情</view>
+      <view bindtap="toChild" class="top-btn {{child}}">评论</view>
+    </view>
+  </view>
+  <!--详情相册-->
+  <view bindtap="imgPreview">
+    <swiper autoplay="{{true}}" bindchange="setCurrent" indicator-dots="{{indicatorDots}}" interval="{{interval}}" duration="{{duration}}" class="banner-box m-top44  swiper-box">
+      <block wx:for="{{goodsImg}}" wx:key="goodsImg">
+        <swiper-item>
+          <image src="{{item.thumb_url}}" mode="aspectFill" class="slide-image" />
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="number-banner">
+      <text>{{currentIndex>9?currentIndex:'0'+currentIndex}}</text>
+      <text>/{{goodsImg.length>9?goodsImg.length:'0'+goodsImg.length}}</text>
+    </view>
+  </view>
+  <view class="cont-box b-f">
+    <!--标题-->
+    <view class="goods-title ">
+      <text class="h4 twolist-hidden"><text class="tag">{{shopName.shop_name}}</text>{{goods.goods_name}}</text>
+    </view>
+    <view class="money-box">
+      <text class="num">￥{{goods.goods_price}}</text>
+      <text class="tag">打折中</text>
+    </view>
+    <view class="del-money-box">
+      <text class="num">市场价：￥:{{goods.market_price}}</text>
+    </view>
+    <view class="goods-sales-box h5 dis-box">
+      <text class="flex-box num">销量：{{goods.sales}}</text>
+      <text class="flex-box stock">库存：{{goods.stock}}</text>
+    </view>
+  </view>
+  <!--服务-->
+  <view class="cont-box b-h b-t">
+    <view class="goods-service h6">
+      <text>本服务由{{companyName}}提供售后服务与产品支持</text>
+      <view class="dis-box goods-service-cont">
+        <block wx:for="{{goodsService}}" wx:for-item="Service" wx:key="goodsService">
+          <view class="flex-four li">
+            <icon type="success" class="text-align" size="13" color="#fd4a5f" />
+            <text>{{Service.title}}</text>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+  <view class="cont-box b-f goods-property-box" bindtap="cascadePopup">
+    <text class="col-7 h5">已选</text>
+    <text class="m-l">{{selectedPro}}</text>
+    <view class="goods-property-jianTou">
+      <text class="iconfont icon-xiangyoujiantou user-orderJtou"></text>
+    </view>
+  </view>
+  <!--评论-->
+  <view class="title-hrbg">
+    <text>评价</text>
+    <view class="hr"></view>
+  </view>
+  <!--<view class="cont-box b-f goods-property-box m-top18" bindtap="toChild">
+    <text class="col-7 h5">用户评价</text>
+    <view class="goods-property-jianTou">
+      <image src="{{goodJiansImg}}" />
+    </view>
+  </view>-->
+  <view class="goods_comment_box b-f">
+    <block wx:for="{{goodsComment}}" wx:key="goodsComment">
+      <view class="cont-box goods-comment-box b-t b-f">
+        <view class="dis-box">
+          <view class="flex-five">
+            <text class="admin twolist-hidden">{{item.name}}</text>
+          </view>
+          <view class="flex-five">
+            <view class="admin text-r">{{item.time}}</view>
+          </view>
+        </view>
+        <view class="goods-comment-cont m-top18 twolist-hidden">{{item.cont}}</view>
+        <view class="goods-comment-box">
+          <text class="admin">规格：{{item.specification}} 颜色：{{item.attribute}}</text>
+        </view>
+      </view>
+    </block>
+    <view class="comment_btn" bindtap="toChild">查看全部评价</view>
+  </view>
+  <!--商品描述-->
+  <view class="title-hrbg">
+    <text>商品详情</text>
+    <view class="hr"></view>
+  </view>
+  <!--商品描述-->
+  <view wx:if="{{goods_comment!= ''}}">
+    <view class="b-f cont-box">
+      <view class="goods-cont-li">
+        <!--<template is="wxParse" data="{{wxParseData:goods_desc.nodes}}" />-->
+        <view class="title h5">{{goodsInfoCont}}</view>
+        <view class="contimg">
+          <image mode="aspectFit" src="{{goodsdetailImg}}" />
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:else>
+    <view class="ectouch-notcont">
+      <text class="iconfont icon-meiyougengduo"></text >
+       <text class="cont">亲,此处暂无内容</text>
+    </view>
+  </view>
+
+  <!--弹出属性层-->
+  <view class="modal-mask {{maskVisual}}" bindtap="cascadeDismiss"></view>
+  <view class="cart" animation="{{animationData}}">
+    <view class="cart_close modal-close" bindtap="cascadeDismiss">
+      <icon type="clear" size="20" color="#ccc" />
+    </view>
+    <view class="modal_cont_box">
+      <view class="dis-box cart_product">
+        <view class="cart_product_img">
+          <image src="{{goods.goods_thumb}}" />
+        </view>
+        <view class="cart_product_info">
+          <view class="onelist-hidden h4">{{goods.goods_name}}</view>
+          <view class="cart_product_price">￥{{goods.goods_price}}</view>
+          <view class="cart_product_repertory">库存 {{goods.stock}} 件</view>
+        </view>
+      </view>
+      <scroll-view scroll-y="true" class="goods-list-box">
+        <view class="cf tmall-types pt20" wx:for="{{properties}}" wx:for-index="attr_id" wx:key="carModels">
+          <view class="tipstxt" id="{{attr_id}}">{{item.name}}</view>
+          <view class="cf cartypelist" wx:for="{{item.values}}" wx:for-index="attr_id_child" wx:key="carModelChild">
+            <view wx:if="{{item.checked}}">
+              <view class="cartypeitem cur" id="{{item.id}}" bindtap="modelTap">{{item.label}}</view>
+            </view>
+            <view wx:else>
+              <view class="cartypeitem" id="{{item.id}}" bindtap="modelTap">{{item.label}}</view>
+            </view>
+          </view>
+        </view>
+        <view class="buy_number flex">
+          <view class="buyNumber h6">
+            <text>购买数量</text>
+          </view>
+          <view class="selectNumber">
+            <button type="default" bindtap="down">-</button>
+            <input type="number" value="{{ num }}" bindinput="import" />
+            <button type="default" bindtap="up">+</button>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+    <button type="button" class="cart_sure h3" bindtap="goodsCheckout"> 确 定 </button>
+  </view>
+  <!-- 提交订单 -->
+  <view class="footer-fixed h3">
+    <view class="goods-fixed-icon" bindtap="flowCart">
+      <image class="flow-img" src="../../images/flow.png"></image>
+      <text>购物车</text>
+    </view>
+    <view class="goods-fixed-icon" bindtap="addCollect">
+      <image wx:if="{{collect.is_collect}}" src="../../images/collect_active.png"></image>
+      <image wx:else="{{collect.is_collect}}" src="../../images/collect.png"></image>
+      <text class="cont s_cont" wx:if="{{collect.is_collect}}">已收藏</text>
+      <text class="cont" wx:else="{{collect.is_collect}}">收藏</text>
+    </view>
+    <view class="order-number" id="cart" bindtap="cascadePopup">加入购物车</view>
+    <view class="order-bt" id="checkout" bindtap="cascadePopup"> 立即购买</view>
+  </view>
+</view>
+<loading hidden="{{hidden}}">加载中…</loading>

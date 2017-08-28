@@ -1,0 +1,30 @@
+{include file="admin/header"}
+
+<table id="list-table" class="table table-bordered table-striped table-hover">
+  <tr class="active">
+    <th class="text-center" width="20%">插件名称</th>
+    <th class="text-center">插件版本</th>
+    <th class="text-center" width="15%">插件作者</th>
+    <th class="text-center" width="15%">作者QQ</th>
+    <th class="text-center" width="10%">电子邮箱</th>
+    <th class="text-center" width="10%">操作</th>
+  </tr>
+  {foreach $modules as $key => $vo}
+  <tr>
+    <td class="text-center">{$vo['name']}</td>
+    <td class="text-center">{$vo['version']}</td>
+    <td class="text-center">{$vo['author']}</td>
+    <td class="text-center">{$vo['qq']}</td>
+    <td class="text-center">{$vo['email']}</td>
+    <td class="text-center">
+    	{if $vo['install'] == 1}
+    	<a href="{U('edit', array('type'=>$vo['type']))}">编辑</a> | <a href="{U('uninstall', array('type'=>$vo['type']))}">卸载</a>
+    	{else}
+    	<a href="{U('install', array('type'=>$vo['type']))}">安装插件</a>
+    	{/if}
+    </td>
+  </tr>
+  {/foreach}
+</table>
+
+{include file="admin/footer"}

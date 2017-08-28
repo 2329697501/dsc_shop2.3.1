@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta charset="utf-8">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <title>{$page_title}</title>
+    <link href="{__TPL__}css/jquery-ui-1.10.1.custom.min.css" rel="stylesheet" />
+    <!--字体图标库-->
+    <link rel="stylesheet" href="{__TPL__}fonts/iconfont.css">
+    <link rel="stylesheet" href="{__TPL__}css/swiper-3.2.5.min.css">
+    <link rel="stylesheet" href="{__TPL__}css/zyUpload.css" />
+
+    <!--主样式-->
+    <link rel="stylesheet" href="{__TPL__}css/ectouch.css" />
+    <script type="text/javascript" src="{__TPL__}js/jquery-2.1.4.min.js"></script>
+</head>
+
+<body>
+<div class="con">
+    <div class="message">
+        <div class="flow-done-con">
+            <!--{if $msg_type == 1}-->
+            <i class="iconfont icon-guanbi"></i>
+            <!--{/if}-->
+            <!--{if $msg_type == 0}-->
+            <i class="iconfont icon-hookring2"></i>
+            <!--{/if}-->
+            <!--{if $msg_type == 2}-->
+            <i class="iconfont icon-102"></i>
+            <!--{/if}-->
+            <p>{$message}</p>
+        </div>
+        <div class="padding-all message-a">
+            <a class="back" href="{$shop_url}">{$lang.back_home}</a>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

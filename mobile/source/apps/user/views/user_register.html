@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta charset="utf-8">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <title>{$page_title}</title>
+    <link href="{__TPL__}css/jquery-ui-1.10.1.custom.min.css" rel="stylesheet" />
+    <!--字体图标库-->
+    <link rel="stylesheet" href="{__TPL__}fonts/iconfont.css">
+    <link rel="stylesheet" href="{__TPL__}css/swiper-3.2.5.min.css">
+    <!--主样式-->
+    <link rel="stylesheet" href="{__TPL__}css/ectouch.css" />
+    <script type="text/javascript" src="{__TPL__}js/jquery-2.1.4.min.js"></script>
+</head>
+
+<body class="b-color-f">
+{include file="float_nav"}
+{include file="search"}
+		<div class="con b-color-f">
+			<div class="user-center user-register of-hidden">
+				<div class="hd j-tab-title">
+					<ul class="dis-box">
+                        {if $show}
+						<li class="box-flex active">手机注册</li>
+                        <li class="box-flex">邮箱注册</li>
+                        {else}
+                        <li class="box-flex active">邮箱注册</li>
+                        {/if}
+
+					</ul>
+				</div>
+				<div id="j-tab-con">
+					<div class="swiper-wrapper">
+                        {if $show}
+						<section class="swiper-slide swiper-no-swiping">
+						    <form action="{U('register')}" method="post" onsubmit="return mobilecheck()" >
+
+							<div class="text-all dis-box j-text-all" name="mobilediv">
+								<label>+86</label>
+								<div class="box-flex input-text">
+									<input class="j-input-text" id="mobile_phone" name="mobile"  type="tel" placeholder="手机号" />
+									<i class="iconfont icon-guanbi is-null j-is-null"></i>
+								</div>
+							</div>
+							<div class="text-all dis-box j-text-all" name="mobile_codediv">
+								<div class="box-flex input-text">
+									<input class="j-input-text" name="mobile_code"  type="number" placeholder="请输入验证码" />
+									<i class="iconfont icon-guanbi is-null j-is-null"></i>
+								</div>
+								<a type="button" class="ipt-check-btn" href="#" id="sendsms" >发送验证码</a>
+							</div>
+							<div class="text-all dis-box j-text-all" name="smspassworddiv">
+								<div class="box-flex input-text">
+									<input class="j-input-text" name="smspassword"  type="password" placeholder="请输入密码" />
+									<i class="iconfont icon-guanbi is-null j-is-null"></i>
+								</div>
+								<i class="iconfont icon-yanjing is-yanjing j-yanjing disabled"></i>
+							</div>
+							<div class="text-all dis-box j-text-all" name="repassworddiv">
+								<div class="box-flex input-text">
+									<input class="j-input-text"  name="repassword"   type="password" placeholder="请重新输入密码" />
+									<i class="iconfont icon-guanbi is-null j-is-null"></i>
+								</div>
+								<i class="iconfont icon-yanjing is-yanjing j-yanjing disabled"></i>
+							</div>
+							<input name="enabled_sms" type="hidden" value="1" />
+							<input type="hidden" name="return_code" value="{$sms_code}" />
+				            <input type="hidden" name="sms_code" value="{$sms_code}" id="sms_code" />
+				            <input type="hidden" name="back_act" value="{$back_act}" />
+				            <input type="hidden" id="flag" value="{$flag}" >
+							<button type="submit" class="btn-submit">注册</button>
+                            <a href="{U('index')}" class="a-first u-l-register fr">已注册直接登录</a>
+						    </form>
+						</section>
+                        {/if}
+						<section class="swiper-slide swiper-no-swiping">
+						    <form action="{U('register')}" method="post" onsubmit="return check()" >
+                            <div class="text-all dis-box j-text-all" name="mobilediv">
+								<div class="box-flex input-text">
+									<input class="j-input-text" id="username" name="username"  type="name" placeholder="用户名" />
+									<i class="iconfont icon-guanbi is-null j-is-null"></i>
+								</div>
+							</div>
+							<div class="text-all dis-box j-text-all" name="emaildiv">
+								<div class="box-flex input-text">
+									<input class="j-input-text" name="email"  type="text" placeholder="请输入邮箱" />
+									<i class="iconfont icon-guanbi is-null j-is-null"></i>
+								</div>
+							</div>
+							<div class="text-all dis-box j-text-all" name="passworddiv">
+								<div class="box-flex input-text">
+									<input class="j-input-text"  name="password" type="password" placeholder="请输入密码" />
+									<i class="iconfont icon-guanbi is-null j-is-null"></i>
+								</div>
+								<i class="iconfont icon-yanjing is-yanjing j-yanjing disabled"></i>
+							</div>
+							<div class="text-all dis-box j-text-all" name="confirm_passworddiv">
+								<div class="box-flex input-text">
+									<input class="j-input-text"  name="confirm_password"  type="password" placeholder="再次输入密码" />
+									<i class="iconfont icon-guanbi is-null j-is-null"></i>
+								</div>
+								<i class="iconfont icon-yanjing is-yanjing j-yanjing disabled"></i>
+							</div>
+							<input type="hidden" name="enabled_sms" value="2" />
+							<button type="submit" class="btn-submit">注册</button>
+                            <a href="{U('index')}" class="a-first u-l-register fr">已注册直接登录</a>
+							</form>
+						</section>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="div-messages"></div>
+		<!--引用js-->
+        {include file="script"}
+		<script type="text/javascript" src="{__PUBLIC__}script/main/sms.js"></script>
+		<script>
+		$(":input").keyup(function(){
+			var box = this.name+"div";
+			var div = $("div[name="+box+"]");
+			var value = div.attr("class").indexOf("active")
+			if (value > 0){
+			  div.removeClass("active");
+			}
+		});
+		var time = 60;
+		var c = 1;
+		function data(){
+			if(time == 0 ){
+			     c=1;
+			     $("#sendsms").html("发送验证码");
+			     time =60;
+			     return;
+			}
+
+			if(time != 0){
+			     if($(".ipt-check-btn").attr("class").indexOf("disabled")<0){
+			        $(".ipt-check-btn").addClass('disabled');
+			     }
+			     c=0; 
+				 $("#sendsms").html("<span>重新获取("+time+")</span>");
+			     time--;
+			}
+			setTimeout(data,1000);
+		}
+		
+		$("#sendsms").click(function(){
+			if(c==0){ 
+				d_messages('发送频繁');
+				return;
+			}
+            var mobile = $("input[name=mobile]").val();
+            var myreg =/^13[0-9]{9}|15[012356789][0-9]{8}|18[0-9]{9}|14[579][0-9]{8}|17[0-9]{9}$/;
+            if( mobile == ''){
+	           	d_messages('请输入手机号');
+				$("div[name=mobilediv]").addClass("active");
+				return false;
+            }else if(!myreg.test(mobile)){
+				d_messages('请输入有效的手机号',2);
+				$("div[name=mobilediv]").addClass("active");
+				return false;
+		    }
+		    data();
+		    $.post('index.php?r=sms/index/send', {mobile:mobile,flag:'register'}, function(json){
+                json = eval('(' + json + ')');
+                d_messages(json.msg);
+            });
+	    })
+
+
+		 function mobilecheck(){
+             var mobile     =$("input[name=mobile]");
+             var mobile_code=$("input[name=mobile_code]");
+             var smspassword=$("input[name=smspassword]");
+             var repassword =$("input[name=repassword]");
+             var sms_code   =$("input[name=sms_code]");
+             var return_code=$("input[name=return_code]").val();
+             var myreg =/^13[0-9]{9}|15[012356789][0-9]{8}|18[0-9]{9}|14[579][0-9]{8}|17[0-9]{9}$/; 
+             if( mobile.val() == ''){
+				 d_messages('请输入手机号',2);
+				 $("div[name=mobilediv]").addClass("active");
+				 return false;
+			 }else if(!myreg.test(mobile.val())){
+				 d_messages('请输入有效的手机号',2);
+				 $("div[name=mobilediv]").addClass("active");
+				 return false;
+		     }
+             if( mobile_code.val() == ''){
+				 d_messages('请输入手机验证码',2);
+				 $("div[name=mobile_codediv]").addClass("active");
+				 return false;
+			 }
+             if( smspassword.val() == ''){
+				 d_messages('请输入密码',2);
+				 $("div[name=smspassworddiv]").addClass("active");
+				 return false;
+			 }else if(smspassword.val().length < 6){
+				 d_messages('密码至少为6位',2);
+				 $("div[name=smspassworddiv]").addClass("active");
+				 return false;
+			 }
+             if( smspassword.val() != repassword.val()){
+				 d_messages('两次密码输入不一致',2);
+				 $("div[name=smspassworddiv]").addClass("active");
+				 $("div[name=repassworddiv]").addClass("active");
+				 return false;
+			 }
+             if(codecheck){
+                 d_messages('验证码错误');
+                 return false;
+             }
+		     
+	     }
+		 function check(){
+			 var password        =$("input[name=password]");
+			 var email           =$("input[name=email]");
+			 var confirm_password=$("input[name=confirm_password]");
+			 var reg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+
+			 if( email.val() == ''){
+				 d_messages('请输入用户邮箱',2);
+				 $("div[name=emaildiv]").addClass("active");
+				 return false;
+			 }else if(!reg.test(email.val())){
+				 d_messages('请输入有效的邮箱',2);
+				 $("div[name=emaildiv]").addClass("active");
+				 return false;
+            
+		     }
+			 if( password.val() == ''){
+				 d_messages('请输入密码',2);
+				 $("div[name=passworddiv]").addClass("active");
+				 return false;
+			 }else if(password.val().length < 6){
+				 d_messages('密码至少为6位',2);
+				 $("div[name=passworddiv]").addClass("active");
+				 return false;
+			 }
+			 if( password.val() != confirm_password.val()){
+				 d_messages('两次密码输入不一致',2);
+				 $("div[name=passworddiv]").addClass("active");
+				 $("div[name=confirm_passworddiv]").addClass("active");
+				 return false;
+			 }
+		 }
+
+	/*切换*/
+	var tabsSwiper = new Swiper('#j-tab-con', {
+		speed: 0,
+		noSwiping: true,
+		autoHeight: true
+	})
+	$(".j-tab-title li").on('touchstart mousedown', function(e) {
+		e.preventDefault()
+		$(".j-tab-title .active").removeClass('active')
+		$(this).addClass('active')
+		tabsSwiper.slideTo($(this).index())
+	})
+	$(".j-tab-title li").click(function(e) {
+		e.preventDefault()
+	})
+	
+		</script>
+	</body>
+
+</html>

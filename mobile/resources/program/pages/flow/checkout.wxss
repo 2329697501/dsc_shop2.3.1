@@ -1,0 +1,20 @@
+/* pages/flow/checkout.wxss */
+/* pages/flow/checkout.wxss */
+.flow-list .header{position:relative;padding:15rpx 0;background:#fff;border-bottom:1px solid #f6f6f9}
+.flow-list .header text{  padding-left:80rpx;font-size:32rpx;}
+.flow-list .header image{width:34rpx;height:37rpx;position:absolute;top:50%;margin-top:-18rpx;left:15px;}
+.checkout_list{padding:15px;background:#fff}
+
+.checkout_list .flow-shopList {
+  padding: 5rpx 0 10rpx;
+  border-bottom: 1px solid #f6f6f9;
+}
+.checkout_list .flow-shopList:last-child{border-bottom:0}
+
+.flow-distribution-right .icon-xiangyoujiantou{font-size:26rpx;position:absolute;right:15px;top:12rpx;color:#999}
+
+.flow-checkout-address text{padding-right:5rpx}
+.flow-header-right .icon-xiangyoujiantou{position: absolute;right:15px;top:50%;margin-top:-15rpx; font-size:32rpx; color:#999}
+
+
+.wxParse-em,.WxEmojiView{display:inline-block;color:#f42424}

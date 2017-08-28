@@ -1,0 +1,69 @@
+<view class="container">
+  <!--商品描述-->
+  <view class="top-nav ">
+    <view class="top-nav-bar">
+      <view bindtap="allOrder" id="top-nav-bar-{{!hiddenallOrder ? true : 0}}">
+        <span>未使用</span>
+      </view>
+      <view bindtap="toOrder" id="top-nav-bar-{{!hiddenOrder ? true : 0}}">
+        <span> 已使用</span>
+      </view>
+      <view bindtap="toAddress" id="top-nav-bar-{{!hiddenAddress ? true : 0}}">
+        <span>已过期</span>
+      </view>
+    </view>
+  </view>
+
+  <view hidden="{{hiddenallOrder}}" class="order">
+    <block wx:for="{{couponsList}}">
+      <view class="coupons_list dis-box">
+        <view class="left">￥{{item.price}}</view>
+        <view class="right">
+          <text class="title">{{item.title}}</text>
+          <text class="cont">{{item.cont}}</text>
+          <text class="time">{{item.time}}</text>
+        </view>
+      </view>
+    </block>
+    <view class="ectouch-notcont">
+      <image src="../../res/images/not.png"></image>
+      <text>亲,此处暂无数据</text>
+    </view>
+  </view>
+
+  <!--商品描述-->
+  <view hidden="{{hiddenOrder}}" class="order">
+    <block wx:for="{{couponsList}}">
+      <view class="coupons_list dis-box">
+        <view class="left">￥{{item.price}}</view>
+        <view class="right">
+          <text class="title">{{item.title}}</text>
+          <text class="cont">{{item.cont}}</text>
+          <text class="time">{{item.time}}</text>
+        </view>
+      </view>
+    </block>
+    <view class="ectouch-notcont">
+      <image src="../../res/images/not.png"></image>
+      <text>亲,此处暂无数据</text>
+    </view>
+
+  </view>
+  <!-- 规格参数-->
+  <view hidden="{{hiddenAddress}}" class="address">
+    <block wx:for="{{couponsList}}">
+      <view class="coupons_list dis-box">
+        <view class="left active">￥{{item.price}}</view>
+        <view class="right">
+          <text class="title">{{item.title}}</text>
+          <text class="cont">{{item.cont}}</text>
+          <text class="time">{{item.time}}</text>
+        </view>
+      </view>
+    </block>
+    <view class="ectouch-notcont">
+      <image src="../../res/images/not.png"></image>
+      <text>亲,此处暂无数据</text>
+    </view>
+  </view>
+</view>

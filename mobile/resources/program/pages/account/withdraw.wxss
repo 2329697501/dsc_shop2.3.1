@@ -1,0 +1,63 @@
+.account-header {
+  padding: 30px 15px 30px 15px;
+  background: #f42424;
+  color: #fff;
+  position: relative;
+  text-align: center;
+}
+
+.account-header text {
+  display: block;
+}
+
+.account-header .name {
+  font-size: 26rpx;
+}
+
+.account-header .price {
+  font-size: 60rpx;
+  padding: 10rpx 0;
+}
+
+.section_recharge {
+  padding: 0 15px;
+  background: #fff;
+}
+
+.section_input {
+  border-bottom: 1px solid #f6f6f9;
+  padding: 24rpx 0;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.section_input .right input {
+  font-size: 28rpx;
+}
+
+.section_input .left {
+  width: 85px;
+}
+
+.section_input .left text {
+  font-size: 30rpx;
+}
+
+.section_input .right {
+  flex: 4;
+}
+
+.footer_cont .title {
+  font-size: 30rpx;
+  color: #777;
+}
+
+.footer_cont .cont {
+  font-size: 28rpx;
+  color: #222;
+}
+
+.profile-btn button {
+  background: #f42424;
+  color: white;
+}

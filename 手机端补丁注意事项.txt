@@ -1,0 +1,36 @@
+补丁注意事项：
+
+1；本次手机端更新比较大，请先做好备份
+
+2：本次手机端更新是整站，建议重命名之前mobile,再把本次的mobile放到根目录下
+
+3.如果想首页导航和官方一样，2行一行5个 ，请执行下面语句（注意表前缀）
+
+
+
+DELETE FROM `dsc_touch_nav`;
+
+INSERT INTO `dsc_touch_nav` (`ctype`, `cid`, `name`, `ifshow`, `vieworder`, `opennew`, `url`, `type`, `pic`)VALUES ('', 0, '店铺街', 1, 1, 0, 'index.php?r=store', 'top', 'more-nav/store.png');
+
+INSERT INTO `dsc_touch_nav` (`ctype`, `cid`, `name`, `ifshow`, `vieworder`, `opennew`, `url`, `type`, `pic`)VALUES ('', 0, '品牌街', 1, 2, 0, 'index.php?r=brand', 'top', 'more-nav/brand.png');
+
+INSERT INTO `dsc_touch_nav` (`ctype`, `cid`, `name`, `ifshow`, `vieworder`, `opennew`, `url`, `type`, `pic`)VALUES ('', 0, '促销活动', 1, 3, 0, 'index.php?r=activity', 'top', 'more-nav/activity.png');
+
+INSERT INTO `dsc_touch_nav` (`ctype`, `cid`, `name`, `ifshow`, `vieworder`, `opennew`, `url`, `type`, `pic`)VALUES ('', 0, '最新团购', 1, 4, 0, 'index.php?r=groupbuy', 'top', 'more-nav/groupbuy.png');
+
+INSERT INTO `dsc_touch_nav` (`ctype`, `cid`, `name`, `ifshow`, `vieworder`, `opennew`, `url`, `type`, `pic`)VALUES ('', 0, '抵用券换购', 1, 5, 0, 'index.php?r=exchange', 'top', 'more-nav/exchange.png');
+
+INSERT INTO `dsc_touch_nav` (`ctype`, `cid`, `name`, `ifshow`, `vieworder`, `opennew`, `url`, `type`, `pic`)VALUES ('', 0, '微社区', 1, 6, 0, 'index.php?r=community', 'top', 'more-nav/community.png');
+
+INSERT INTO `dsc_touch_nav` (`ctype`, `cid`, `name`, `ifshow`, `vieworder`, `opennew`, `url`, `type`, `pic`) VALUES ('', 0, '微筹', 1, 7, 0, 'index.php?r=crowd_funding', 'top', 'more-nav/crowd_funding.png');
+
+INSERT INTO `dsc_touch_nav` (`ctype`, `cid`, `name`, `ifshow`, `vieworder`, `opennew`, `url`, `type`, `pic`)VALUES ('', 0, '拍卖活动', 1, 8, 0, 'index.php?r=auction', 'top', 'more-nav/auction.png');
+
+INSERT INTO `dsc_touch_nav` (`ctype`, `cid`, `name`, `ifshow`, `vieworder`, `opennew`, `url`, `type`, `pic`)VALUES ('', 0, '超值礼包', 1, 9, 0, 'index.php?r=package', 'top', 'more-nav/package.png');
+
+INSERT INTO `dsc_touch_nav` (`ctype`, `cid`, `name`, `ifshow`, `vieworder`, `opennew`, `url`, `type`, `pic`)VALUES ('', 0, '专题汇', 1, 10, 0, 'index.php?r=topic', 'top', 'more-nav/topic.png');
+
+
+
+INSERT INTO `dsc_touch_nav` (`ctype`, `cid`, `name`, `ifshow`, `vieworder`, `opennew`, `url`, `type`, `pic`)VALUES ('', 0, '更多选项', 1, 11, 0, ' index.php?r=site/index/more', 'top', 'more-nav/iconfont-user.png');
+

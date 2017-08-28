@@ -1,0 +1,48 @@
+<view class="container">
+
+  <!--推荐商品列表-->
+  <view class="index-list b-f">
+    <view class="index-goods-list  dis-box">
+      <view class="user-left">
+        <image src="{{commentDetail.goods_thumb}}" mode="aspectFit" class="goodsImg" />
+      </view>
+      <view class="user-right">
+        <text class="h4 twolist-hidden">{{commentDetail.goods_name}}</text>
+        <text class="price col-1cbb7f h3">￥{{commentDetail.shop_price}}</text>
+      </view>
+    </view>
+  </view>
+  <!--cont-->
+  <form bindsubmit="bindFormSubmit">
+
+
+    <view class=" b-f cont-box m-top10 comment-cont">
+
+      <view class="section_input dis-box">
+        <view class="left col-3"><text>评分</text></view>
+        <view class="right">
+          <text class="iconfont icon-wujiaoxing"></text>
+          <text class="iconfont icon-wujiaoxing"></text>
+          <text class="iconfont icon-wujiaoxing"></text>
+          <text class="iconfont icon-wujiaoxing"></text>
+          <text class="iconfont icon-wujiaoxing"></text>
+        </view>
+      </view>
+      <textarea placeholder="填写评论内容 (140字)" maxlength="140" name="textarea" />
+    </view>
+    <view class="add-img-section  dis-box">
+      <view class="add-img" bindtap="chooseimage">
+        <text class="iconfont icon-iconfont7"></text>
+      </view>
+            <view class="right">
+        <image src="{{tempFilePaths }}" mode="aspecFill"/>
+      </view>
+    </view>
+    <view class="cont-box comment-cont">
+      <button type="primary"> 提交评论 </button>
+    </view>
+  </form>
+
+  <!--index.wxml-->
+
+</view>

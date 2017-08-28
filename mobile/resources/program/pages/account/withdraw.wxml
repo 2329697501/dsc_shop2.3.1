@@ -1,0 +1,45 @@
+<view class="container">
+  <form bindsubmit="formSubmit">
+    <!---header-->
+    <view class="account-header b-f">
+      <text class="price">{{account.price}}</text>
+      <text class="name">可提现余额(元)</text>
+    </view>
+    <view class="section_recharge">
+      <!--输入金额-s-->
+      <view class="section_input dis-box">
+        <view class="left col-3"><text>提现金额</text></view>
+        <view class="right">
+          <input confirm-type="" name="price"  type="number" placeholder="输入提现金额（100的整数倍）" />
+        </view>
+      </view>
+      <!--输入金额-e-->
+      <!--输入微信号-s-->
+      <view class="section_input dis-box">
+        <view class="left col-3"><text>微信号</text></view>
+        <view class="right">
+          <input confirm-type="" name="weChat" type="text" placeholder="输入微信号" />
+        </view>
+      </view>
+      <!--输入微信号-e-->
+      <!--输入手机号-s-->
+      <view class="section_input dis-box">
+        <view class="left col-3"><text>手机号码</text></view>
+        <view class="right">
+          <input confirm-type="" name="mobile" type="number" placeholder="输入手机号码" />
+        </view>
+      </view>
+      <!--输入手机号-e-->
+    </view>
+
+    <view class="footer_cont cont-box">
+      <text class="title">提现规则</text>
+      <text class="cont">
+        {{speak.cont}}
+      </text>
+    </view>
+    <view class="padding-box m-top10 profile-btn">
+      <button formType="submit">提 现</button>
+    </view>
+  </form>
+</view>

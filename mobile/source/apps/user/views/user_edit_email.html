@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta charset="utf-8">
+		<title>ECTouch微商城</title>
+		<!--字体图标库-->
+		<link rel="stylesheet" href="{__TPL__}fonts/iconfont.css">
+		<!--主样式-->
+		<link rel="stylesheet" href="{__TPL__}css/ectouch.css" />
+	</head>
+
+	<body class="b-color-f">
+		<div id="loading"><img src="{__TPL__}img/loading.gif" /></div>
+		<div class="con">
+			<!--根据邮箱找回-->
+			<section class="user-center j-f-email margin-lr">
+				<form action="{U('user/profile/user_edit_email')}" method="post">
+					<div class="text-all dis-box j-text-all">
+						<div class="input-text box-flex" name="emaildiv">
+							<input class="j-input-text" id="focus" type="text" name="email" placeholder="{if $emails}{$emails}{else}请输入邮箱{/if}" />
+							<i class="iconfont icon-guanbi is-null j-is-null"></i>
+						</div>
+					</div>
+					<button type="submit" class="btn-submit">确定修改</button>
+				</form>
+			</section>
+		</div>
+		<!--引用js-->
+		<script type="text/javascript" src="{__TPL__}js/jquery-2.1.4.min.js"></script>
+		<script type="text/javascript" src="{__TPL__}js/ectouch.js"></script>
+			<script type="text/javascript" src="{__TPL__}js/layer.js"></script>	
+	</body>
+	
+	<script>
+	$("#focus").focus();
+	$(".btn-submit").click(function(){
+		 var email = $("#focus");
+		 var reg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+		if(email.val() == ""){
+			d_messages('请输入用户邮箱',2);
+			 $("div[name=emaildiv]").addClass("active");
+			return false;
+		}
+		if(!reg.test(email.val())){
+			 d_messages('请输入有效的邮箱',2);
+			 $("div[name=emaildiv]").addClass("active");
+			 return false;
+	     }
+			
+		
+	})
+	</script>
+
+</html>

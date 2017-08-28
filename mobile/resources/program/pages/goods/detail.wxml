@@ -1,0 +1,75 @@
+<view class="container m-b5">
+  <view class="goods-header">
+    <view class="nav h5">
+      <view bindtap="toNew" class="top-btn {{new}}">商品</view>
+      <view bindtap="toGood" class="top-btn {{good}}">详情</view>
+      <view bindtap="toChild" class="top-btn {{child}}">评论</view>
+    </view>
+  </view>
+  <!--商品描述-->
+  <!--<view class="cont-box b-f m-t20">  
+    <view class=" goods-detail-box">
+        <view class="header">
+              <view class='{{current == 0?"active":""}}' data-index="0" catchtap="bindHeaderTap">商品描述</view>
+              <view class='{{current == 1?"active":""}}' data-index="1" bindtap="bindHeaderTap">规格参数</view>
+              <view class="shift" animation="{{shiftanimation}}" ></view>
+        </view>
+        <view class="wrapper">
+          <swiper id="swiper" class="main-swiper" duration="300" current="{{current}}" bindchange="bindSwiper">
+            <swiper-item id="swiper-item" >
+              <view class="title">{{goodsInfoCont}}</view>
+              <view class="contimg"><image mode="aspectFit" src="{{goodsImg}}"/></view>
+            </swiper-item>
+            <swiper-item>
+                11111
+            </swiper-item>
+          </swiper>
+        </view>
+    </view>
+</view>-->
+
+  <!--商品描述-->
+  <view class="top-nav m-top18">
+    <view class="top-nav-bar">
+      <view bindtap="toOrder" id="top-nav-bar-{{!hiddenOrder ? true : 0}}">
+        <span>商品描述</span>
+      </view>
+      <view bindtap="toAddress" id="top-nav-bar-{{!hiddenAddress ? true : 0}}">
+        <span>规格参数</span>
+      </view>
+    </view>
+  </view>
+  <!--商品描述-->
+  <view hidden="{{hiddenOrder}}" class="order">
+    <view wx:if="{{goods.goods_desc!= ''}}">
+      <view class="b-f cont-box">
+        <view class="goods-cont-li">
+          <!--<template is="wxParse" data="{{wxParseData:goods_desc.nodes}}" />-->
+          <view class="title h5">{{goodsInfoCont}}</view>
+          <view class="contimg">
+            <image mode="aspectFit" src="{{goodsdetailImg}}" />
+          </view>
+        </view>
+      </view>
+    </view>
+    <view wx:else>
+      <view class="ectouch-notcont">
+        <text class="iconfont icon-meiyougengduo"></text >
+        <text class="cont">亲,此处暂无数据</text>
+      </view>
+    </view>
+  </view>
+  <!--规格参数-->
+  <view hidden="{{hiddenAddress}}" class="address">
+    <view class="dis-box paramete-cont" wx:for="{{parameteCont}}" wx:key="parameteCont">
+      <view class="li flex-five">{{item.name}}：</view>
+      <view class="li flex-five">
+        <text>{{item.value}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="ectouch-notcont">
+        <text class="iconfont icon-meiyougengduo"></text >
+        <text class="cont">亲,此处暂无数据</text>
+  </view>
+</view>

@@ -1,0 +1,46 @@
+/*明细*/
+
+.account_list_box {
+  background: #fff;
+  padding: 10px 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.account_list_box .ul .left {
+  font-size: 24rpx;
+}
+
+.account_list_box .ul .right {
+  font-size: 30rpx;
+  text-align: right;
+  color: #f42424;
+}
+
+.account_list_box .time {
+  font-size: 24rpx;
+  color: #999;
+}
+
+/*列表*/
+
+.profile-list {
+  padding: 20rpx 0;
+  border-bottom: 1px solid #f6f6f9;
+}
+
+.profile-list .admin {
+  padding-left: 15px;
+  font-size: 33rpx;
+  color: #222;
+}
+
+.profile-list .name {
+  padding-right: 15px;
+  font-size: 30rpx;
+  color: #222;
+}
+
+.user-orderJtou {
+  width: 26rpx;
+  height: 26rpx;
+}

@@ -1,0 +1,46 @@
+{include file="page_header"}
+<body class="b-color-f">
+		<div class="con m-b7">
+			<section class="product-list j-product-list product-list-small" data="2">
+					<ul>
+                        <div class="store_info">
+                            <script id="j-product" type="text/html">
+                                <%each goods_list as goods%>
+                                <li>
+                                    <div class="product-div">
+                                        <a href="<%goods.shopUrl%>"><img class="product-list-img" src="<%goods.goods_thumb%>"></a>
+                                        <div class="product-text">
+                                            <a href="/dashangchuan//mobile/index.php?r=goods&amp;id=530&amp;u=80"><h4><%goods.goods_name%></h4></a>
+                                            <p class="dis-box p-t-remark"><span class="box-flex"><%goods.goods_attr%></span><span class="box-flex text-right">×<%goods.goods_number%></span></p>
+                                            <p class="dis-box n-return-btn">
+                                            <span class="p-price t-first box-flex">
+                                                <%#goods.goods_price%>
+                                            </span>
+                                            <a href="<%goods.order_url%>" class="box-flex"><em class="btn-default">申请</em></a>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                </li>
+                                <%/each%>
+                            </script>
+                        </div>
+                      
+                        
+                       
+                    </ul>
+                    </section>
+
+               </div>
+
+		<!--引用js-->
+
+
+
+
+		<script>
+            $('.store_info').infinite({url: "{U('user/order/goodsorder')}", template:'j-product'});
+		</script>
+	</body>
+
+</html>

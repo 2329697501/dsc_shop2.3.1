@@ -1,0 +1,47 @@
+/**index.wxss**/
+
+.profile-list {
+  padding: 24rpx 0;
+  border-bottom: 1px solid #f6f6f9;
+}
+
+.profile-list .admin {
+  padding-left: 15px;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.address-detail {
+  font-size: 30rpx;
+  width: 100%;
+}
+
+.profile-btn button {
+  background: #f42424;
+  color: white;
+}
+
+/*列表*/
+
+.address-box .left-name {
+  width: 85px;
+}
+
+.address-box .right-cont {
+  flex: 5;
+  padding-right: 15px;
+}
+
+.address-box .right-cont input {
+  font-size: 28rpx;
+  color: #444;
+}
+
+.address-box .right-cont input {
+  width: 100%;
+}
+
+.address-cont-box picker {
+  display: inline-block;
+  padding-right: 15rpx;
+}

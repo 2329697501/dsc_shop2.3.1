@@ -1,0 +1,41 @@
+.user-left {
+  flex: 2;
+  padding-left: 15px;
+}
+
+.user-left image {
+  width: 180rpx;
+  height: 180rpx;
+  border: 1px solid #efeff4;
+}
+
+.user-right {
+  flex: 5;
+  padding: 0 15px 0 10px;
+}
+
+.user-right .price {
+  padding-top: 20rpx;
+  display: block;
+}
+
+.index-goods-list {
+  border-bottom: 1px solid #efeff4;
+  padding: 10px 0;
+  position: relative
+}
+
+.index-list {
+  padding: 5px 0 0 0;
+}
+
+.index-goods-list {
+  border-bottom: 1px solid #efeff4;
+  padding: 10px 0;
+}
+
+.index-list {
+  padding: 5px 0 0 0;
+
+}
+.index-list .user-right .icon-lajixiang{font-size:36rpx;color:#999;position: absolute;right:15px;bottom:15px}

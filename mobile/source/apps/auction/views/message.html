@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<title>{$page_title}</title>
+		{if $auto_redirect}
+		<meta http-equiv="refresh" content="3;URL={$message.back_url}" />
+		{/if}
+		<link rel="stylesheet" href="{__PUBLIC__}touch/css/ui.css">
+		<script type="text/javascript" src="{__TPL__}js/zepto.min.js"></script>
+	</head>
+
+	<body ontouchstart>
+
+		<section class="ui-container">
+
+			<section id="notice">
+				<div class="demo-item">
+					<div class="demo-block">
+						<section class="ui-notice">
+							<i></i>
+							<p>{$message.content}</p>
+							<div class="ui-notice-btn">
+
+								<!-- {if $message.url_info} -->
+								<!--{foreach $message.url_info as $info => $url}-->
+								<button class="ui-btn-primary ui-btn-lg J_link" data-href="{$url}">{$info}</button>
+								<!--{/foreach}-->
+								<!--{/if}-->
+
+							</div>
+						</section>
+					</div>
+				</div>
+			</section>
+
+		</section>
+		<script type="text/javascript">
+			$('.J_link').click(function() {
+			if ($(this).data('href')) {
+				location.href = $(this).data('href');
+			}
+		});
+		</script>
+	</body>
+
+</html>

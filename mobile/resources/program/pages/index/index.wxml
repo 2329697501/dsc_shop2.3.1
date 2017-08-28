@@ -1,0 +1,87 @@
+<view class="container">
+  <!--首页banner-->
+  <view class="index-banner">
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class="banner-box swiper-box ">
+      <block wx:for="{{banner}}" wx:key="banner">
+        <navigator url="{{item.link}}" hover-class="navigator-hover">
+          <swiper-item>
+            <image src="{{item.pic}}" class="slide-image" />
+          </swiper-item>
+        </navigator>
+      </block>
+    </swiper>
+    <!--header-bg-->
+    <view class="linear"></view>
+    <!--搜索框-->
+    <view class="index-search-box">
+      <view class="dis-box">
+        <view class="left-title box-flex" bindtap="bindCateTap">
+          <image src='{{headerSearch.classifyUrl}}' mode="aspectFit" />
+        </view>
+        <view class="index-search">
+          <view class="dis-box" bindtap="bindSearchTap">
+            <view class="index-cont-img box-flex">
+              <icon type="search" class="text-center" size="{{headerSearch.searchSize}}" color="{{headerSearch.searchColor}}" />
+            </view>
+            <view class="index-cont-search box-flex">{{headerSearch.name}}</view>
+          </view>
+        </view>
+        <!--<view class="right-title box-flex">
+          <image src='../../images/xiaoxi.png' mode="aspectFit" />
+        </view>-->
+      </view>
+    </view>
+  </view>
+  <!--活动-->
+  <view class="index-activity-list dis-box m-top18">
+    <view class="left flex-box">
+      <navigator url="../goods/index?id=903" hover-class="navigator-hover">
+        <image mode="aspectFit" src="{{activityLeft.pic}}" />
+      </navigator>
+    </view>
+    <view class="right flex-box">
+      <block wx:for="{{activityRight}}" wx:key="activityRight">
+        <view class="right-bottom">
+          <navigator url="{{item.link}}" hover-class="navigator-hover">
+            <image mode="aspectFit" src="{{item.pic}}" />
+          </navigator>
+        </view>
+      </block>
+    </view>
+  </view>
+  <!--精品推荐-->
+  <view class="index_sale">
+    <image class="nav_img" src="../../images/guangao.png" mode="aspectFill" />
+    <scroll-view scroll-x="true">
+      <block wx:for-items="{{boutiqueList}}" wx:key="boutique_list">
+        <view style="display: inline-block;" bindtap="siteDetail" data-index="{{index}}">
+          <view class="page-column">
+            <image class="sale_img" src="{{item.goods_thumb}}" mode="aspectFill" />
+            <view class="content onelist-hidden ">
+              <text>{{item.goods_name}}</text>
+            </view>
+            <text class="price">{{item.shop_price}}</text>
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+  <!--推荐商品列表-->
+  <view class="index-list">
+    <image class="nav_img" src="../../images/cainixihuan.png" mode="aspectFill" />
+    <view class="index-goods-list dis-flex b-f">
+      <block wx:for="{{indexGoods}}" wx:key="indexGoods">
+        <view class="flex-five list-box" bindtap="siteDetail" data-index="{{index}}">
+          <image src="{{item.goods_thumb}}" mode="aspectFit" class="goodsImg" />
+          <text class="h4 twolist-hidden">{{item.goods_name}}</text>
+          <text class="price h3">￥{{item.shop_price}}<text class="del">￥{{item.market_price}}</text></text>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <view class="cont-box">
+    <text class="p text-c">没有更多了</text>
+  </view>
+</view>
+<loading hidden="{{hidden}}">加载中…</loading>

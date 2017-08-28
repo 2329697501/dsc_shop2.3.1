@@ -1,0 +1,28 @@
+<view class="container">
+  <!---header-->
+  <view class="account-header b-f">
+    <navigator url="../account/detail" hover-class="navigator-hover"><view class="account-detail">账户明细</view></navigator>
+    <text class="name">可用余额(元)</text>
+    <text class="price">{{account.user_money}}</text>
+    <text class="account_tishi">当前余额可支付金额为{{account.user_money}}</text>
+  </view>
+  <!--list-->
+  <view class="m-top10">
+    <block wx:for="{{accountList}}" wx:key="accountList">
+      <navigator url="{{item.link}}" hover-class="navigator-hover">
+        <view class="profile-list b-f">
+          <view class="dis-box">
+            <view class="flex-five">
+              <text class="admin">{{item.admin}}</text>
+            </view>
+            <view class="flex-five fr">
+              <view class="fr name">
+                <image class="user-orderJtou" src="{{item.orderJtou}}" />
+              </view>
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </block>
+  </view>
+</view>

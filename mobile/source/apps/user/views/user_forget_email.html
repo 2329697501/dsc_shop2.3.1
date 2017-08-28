@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta charset="utf-8">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <title>{$page_title}</title>
+    <link href="{__TPL__}css/jquery-ui-1.10.1.custom.min.css" rel="stylesheet" />
+    <!--字体图标库-->
+    <link rel="stylesheet" href="{__TPL__}fonts/iconfont.css">
+    <link rel="stylesheet" href="{__TPL__}css/swiper-3.2.5.min.css">
+    <!--主样式-->
+    <link rel="stylesheet" href="{__TPL__}css/ectouch.css" />
+    <script type="text/javascript" src="{__TPL__}js/jquery-2.1.4.min.js"></script>
+</head>
+
+<body class="b-color-f">
+{include file="float_nav"}
+{include file="search"}
+		<div class="con" id="pjax-container">
+			<!--根据邮箱找回-->
+			<section class="user-center j-f-email margin-lr">
+				<form action="{U('get_password_phone')}" method="POST" onsubmit="return check()">
+					<div class="text-all dis-box j-text-all" name="emaildiv">
+						<div class="input-text box-flex">
+							<input class="j-input-text" name="email" type="email" placeholder="请输入邮箱" />
+							<i class="iconfont icon-guanbi is-null j-is-null"></i>
+						</div>
+					</div>
+					<p class="fl t-remark">为了您的安全，我们会向你邮箱发送验证码</p>
+					<input type="hidden" name="enabled_sms" value="2" />
+					
+					<button type="submit" class="btn-submit">下一步</button>
+					<p class="fr t-remark">您也可以通过 <a href="{U('get_password_phone',array('enabled_sms'=>'1'))}" class="a-first">手机找回</a> </p>
+				</form>
+			</section>
+		</div>
+		<div class="div-messages"></div>
+		<!--引用js-->
+        {include file="script"}
+        <script>
+        $(":input").keyup(function(){
+            var box=this.name+"div";
+            var div=$("div[name="+box+"]");
+            var value=div.attr("class").indexOf("active")
+            if ( value > 0 ){
+         	  div.removeClass("active");
+            }
+ 	    });
+        function check(){
+            var user_name=$("input[name=user_name]");
+            var email    =$("input[name=email]");
+            var reg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+            if( user_name.val() == ''){
+            	$("div[name=user_namediv]").addClass("active");
+  			    d_messages('请输入用户名！',2);
+  			    return false;
+            }
+            if( email.val() == ''){
+				 d_messages('请输入用户邮箱',2);
+				 $("div[name=emaildiv]").addClass("active");
+				 return false;
+			 }else if(!reg.test(email.val())){
+				 d_messages('请输入有效的邮箱',2);
+				 $("div[name=emaildiv]").addClass("active");
+				 return false;
+          
+		     }
+            
+        }
+
+        </script>
+	</body>
+
+</html>

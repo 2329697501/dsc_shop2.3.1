@@ -1,0 +1,37 @@
+<view class="container">
+
+  <!--header-->
+  <view class="done-header">
+    <view class="money-icon">￥</view>
+    <text class="h4">付款金额</text>
+    <text class="p">{{donePrice.order_amount}}</text>
+    <text class="h6 text-c">测试版本，实付金额为0.1元，商品不发货</text>
+  </view>
+
+  <!--list-->
+  <view class="padding-box b-f">
+    <block wx:if="{{doneList.order_sn}}">
+      <view class="dis-box done-list">
+        <text class="flex-five done-list-left col-7">订单号</text>
+        <text class="flex-five done-list-right">{{doneList.order_sn}}</text>
+      </view>
+    </block>
+    <block wx:if="{{doneList.shipping_name}}">
+      <view class="dis-box done-list">
+        <text class="flex-five done-list-left col-7">快递方式</text>
+        <text class="flex-five done-list-right">{{doneList.shipping_name}}</text>
+      </view>
+    </block>
+    <block wx:if="{{doneList.pay_name}}">
+      <view class="dis-box done-list">
+        <text class="flex-five done-list-left col-7">支付方式</text>
+        <text class="flex-five done-list-right">{{doneList.pay_name}}</text>
+      </view>
+    </block>
+  </view>
+  <view class="padding-box m-top10 ">
+    <button type="primary" size="{{primarySize}}" data-id='{{order.order_id}}' loading="{{loading}}" plain="{{plain}}" bindtap="primary"> 微信支付 </button>
+    <navigator url="{{flowMoney.checkoutUrl}}" class="cart-tab-item-btn h4" hover-class="navigator-hover"> <button type="default" class="m-top10"> 去用户中心 </button></navigator>
+  </view>
+</view>
+<loading hidden="{{hidden}}">加载中…</loading>

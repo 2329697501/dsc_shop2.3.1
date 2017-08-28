@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta charset="utf-8">
+		<title>银行卡列表</title>
+		<!--字体图标库-->
+		<link rel="stylesheet" href="{__TPL__}fonts/iconfont.css">
+		<!--主样式-->
+		<link rel="stylesheet" href="{__TPL__}css/ectouch.css" />
+	</head>
+
+	<body class="">
+		<div id="loading"><img src="{__TPL__}img/loading.gif" /></div>
+		<div class="con">
+
+			<form action="{U('user/index/addcard')}">
+				<section class=" j-f-tel">
+					<div class="b-color-f padding-lr">
+                                            {foreach $card_list as $card}
+							<div class="text-all dis-box j-text-all b-color-f card-div position-rel">
+								<a href="#" class="product-div-link"></a>
+								<div>
+									<p>{$card.bank_name}</p>
+									<span>尾号3242</span>
+								</div>
+								<span class="t-jiantou"><i class="iconfont icon-jiantou tf-180 jian-top"></i></span>
+							</div>
+						{/foreach}	
+					</div>
+					<div class="dis-box padding-all">
+						<input type="hidden" name="u-h-forget" value="u-f-tel" />
+                                                <a href="{U('user/account/addcard')}" class="btn-submit box-flex">+添加银行卡</a>
+					</div>
+				</section>
+			</form>
+
+		</div>
+		<!--引用js-->
+		<script type="text/javascript" src="{__TPL__}js/jquery-2.1.4.min.js"></script>
+		<script type="text/javascript" src="{__TPL__}js/ectouch.js"></script>
+
+	</body>
+
+</html>

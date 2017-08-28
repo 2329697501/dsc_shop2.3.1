@@ -1,0 +1,7 @@
+.coupons_list{height:150rpx;background:#fff;margin-top:20rpx;}
+.coupons_list .left{flex:2;line-height:150rpx;text-align: center;background:#f42424;color:#fff;font-size:50rpx;}
+.coupons_list .left.active{background:#ccc;}
+.coupons_list .right{flex:4;padding:15rpx;}
+.coupons_list .right .title{font-size:28rpx;display: block}
+.coupons_list .right .cont{font-size:30rpx;color:#f42424;display: block}
+.coupons_list .right .time{font-size:24rpx;color:#999}

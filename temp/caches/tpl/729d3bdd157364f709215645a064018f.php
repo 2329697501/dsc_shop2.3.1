@@ -1,0 +1,1 @@
+<?php exit;?>001476882138445695cb8be56b4fa97f5983a05278b0s:165:"a:2:{s:8:"template";s:102:"{foreach from=$ads item=ad}<div class='swiper-slide'><?php echo $ad; ?></div><?php $n++;}unset($n); ?>";s:12:"compile_time";i:1476795738;}";
